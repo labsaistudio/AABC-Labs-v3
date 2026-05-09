@@ -33,8 +33,8 @@ export function evaluatePolicy(step) {
   if (!isOperationType(operationType)) {
     return deny('invalid_operation_type');
   }
-  if (signerMode === SignerMode.SERVER_TREASURY) {
-    return deny('server_treasury_not_enabled');
+  if (signerMode === SignerMode.SERVER_TREASURY || signerMode === SignerMode.SMART_ACCOUNT_SESSION) {
+    return deny('phase_c_signer_not_enabled');
   }
   if (signerMode !== SignerMode.SESSION_WALLET) {
     return allow();

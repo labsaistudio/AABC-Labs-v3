@@ -13,6 +13,7 @@
     "demo:paid": "node cli/src/index.mjs run workflow-packs/paid-endpoint/workflow.json --out .outcome/runs/paid-endpoint",
     "verify": "node cli/src/index.mjs verify .outcome/runs/token-program",
     "export-proof": "node cli/src/index.mjs export-proof .outcome/runs/token-program",
+    "architecture": "node cli/src/index.mjs architecture",
     "studio": "node apps/studio/server.mjs",
     "scan": "node cli/src/index.mjs scan .",
     "test": "node --test tests/*.test.mjs"

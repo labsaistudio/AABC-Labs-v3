@@ -1,6 +1,9 @@
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { PHASE_C_CAPABILITIES } from '../../packages/phase-c/src/phase-c-capabilities.mjs';
+import { buildPhaseCMatrix } from '../../packages/phase-c/src/phase-c-gates.mjs';
+import { TRUST_BOUNDARY_LAYERS } from '../../packages/trust/src/execution-trust-contract.mjs';
 
 const port = Number(process.env.PORT || 4173);
 const packNames = [
@@ -21,12 +24,26 @@ const server = createServer(async (req, res) => {
     res.end(JSON.stringify(workflows.map(summary)));
     return;
   }
+  if (req.url === '/api/architecture') {
+    res.setHeader('content-type', 'application/json');
+    res.end(JSON.stringify(architectureSummary()));
+    return;
+  }
   res.setHeader('content-type', 'text/html');
   res.end(renderHtml());
 });
 
 async function readWorkflow(name) {
   return JSON.parse(await readFile(join('workflow-packs', name, 'workflow.json'), 'utf8'));
+}
+
+function architectureSummary() {
+  const signalsByCapability = Object.fromEntries(PHASE_C_CAPABILITIES.map((item) => [item.id, []]));
+  return {
+    layers: ['core', 'policy', 'proof', 'integrations', 'trust', 'phase-c'],
+    trustBoundaryLayers: TRUST_BOUNDARY_LAYERS,
+    phaseC: buildPhaseCMatrix({ signalsByCapability }),
+  };
 }
 
 function summary(workflow) {
@@ -76,11 +93,14 @@ function renderHtml() {
       <section class="stats" id="stats"></section>
     </header>
     <section id="workflows" class="grid"></section>
+    <h2>Architecture Contracts</h2>
+    <section id="architecture" class="grid"></section>
   </main>
   <script>
-    fetch('/api/workflows')
-      .then((res) => res.json())
-      .then((items) => {
+    Promise.all([
+      fetch('/api/workflows').then((res) => res.json()),
+      fetch('/api/architecture').then((res) => res.json()),
+    ]).then(([items, architecture]) => {
         const caps = new Set(items.flatMap((item) => item.capabilities));
         document.getElementById('stats').innerHTML = [
           ['Workflows', items.length],
@@ -92,6 +112,15 @@ function renderHtml() {
           '<article class="card"><h2>' + item.title + '</h2><p>' + item.summary + '</p>' +
           '<div class="meta"><span class="pill">' + item.steps + ' steps</span><span class="pill">' + item.files + ' files</span></div>' +
           '<div class="caps">' + item.capabilities.map((cap) => '<span class="cap">' + cap + '</span>').join('') + '</div></article>'
+        ).join('');
+        document.getElementById('architecture').innerHTML = [
+          ['Runtime layers', architecture.layers],
+          ['Trust boundaries', architecture.trustBoundaryLayers],
+          ['Phase C contracts', architecture.phaseC.map((item) => item.capabilityId)],
+        ].map(([title, values]) =>
+          '<article class="card"><h2>' + title + '</h2><div class="caps">' +
+          values.map((value) => '<span class="cap">' + value + '</span>').join('') +
+          '</div></article>'
         ).join('');
       });
   </script>
