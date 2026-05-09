@@ -6,6 +6,10 @@ AABC Labs v3 turns agent tasks into typed workflow contracts, policy-checked
 steps, replayable event logs, source package manifests, and verifiable proof
 artifacts.
 
+It is built around a simple promise: an agent should not only say what it did.
+It should leave behind a replayable run, a public proof feed, and source files
+that a user can review.
+
 ## Why This Exists
 
 Agent-led Web3 workflows need more than a chat transcript. They need a record
@@ -32,6 +36,20 @@ The demo writes a local run under `.outcome/runs/token-program` with:
 - `proof.html`
 - `source-package/`
 
+Curated examples are committed under `examples/runs/` so reviewers can inspect
+the generated proof shape without running anything first.
+
+## End-to-End Flow
+
+1. Pick a workflow pack, such as `workflow-packs/token-program/workflow.json`.
+2. Validate the outcome contract, policy modes, Solana capability surface, and
+   required source package files.
+3. Run each step through reference adapters that prepare proof artifacts instead
+   of broadcasting transactions.
+4. Emit `events.jsonl`, `proof.json`, `proof.html`, and a reviewable
+   `source-package/`.
+5. Replay the event log to reconstruct the workflow state.
+
 ## Core Ideas
 
 - Outcome contracts define the expected workflow, steps, risk classes, signer
@@ -55,6 +73,9 @@ USDC payment flows.
 
 See `docs/solana-ecosystem.md` for the public boundary.
 
+Each workflow run also emits a `solana_capability_plan` artifact so reviewers can
+see which Solana capabilities are in scope for that workflow.
+
 ## Workflow Packs
 
 This repository includes sanitized workflow packs for common Web3 operations:
@@ -69,6 +90,19 @@ This repository includes sanitized workflow packs for common Web3 operations:
 - Paid endpoint
 
 They are examples of the architecture, not the project boundary.
+
+## What To Review
+
+- `packages/core` for workflow validation, execution, event logs, replay, and
+  source package delivery.
+- `packages/policy` for signer modes, operation types, risk classes, and value
+  gates.
+- `packages/proof` for redaction, public proof feeds, transaction records, and
+  static proof export.
+- `packages/integrations` for the public Solana capability surface.
+- `workflow-packs/*/source` for sanitized source packages that represent what a
+  completed agent workflow should hand back to a user.
+- `examples/runs` for generated proof output.
 
 ## Security and Scope
 

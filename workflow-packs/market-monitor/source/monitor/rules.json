@@ -1,0 +1,6 @@
+{
+  "priceMovePercent": 8,
+  "lpDepthDropPercent": 12,
+  "pollSeconds": 30,
+  "proofArtifactRequired": true
+}

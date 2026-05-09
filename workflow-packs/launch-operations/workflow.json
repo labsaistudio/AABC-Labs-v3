@@ -42,7 +42,17 @@
       {
         "path": "ops/route-planner.ts",
         "kind": "source",
-        "content": "export const routePlan = { broadcasted: false, maxSlippageBps: 120 };\n"
+        "sourcePath": "source/ops/route-planner.ts"
+      },
+      {
+        "path": "ops/liquidity-checks.ts",
+        "kind": "source",
+        "sourcePath": "source/ops/liquidity-checks.ts"
+      },
+      {
+        "path": "ops/runbook.md",
+        "kind": "doc",
+        "sourcePath": "source/ops/runbook.md"
       }
     ]
   }

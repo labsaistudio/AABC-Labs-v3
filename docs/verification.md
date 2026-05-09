@@ -6,6 +6,7 @@ Run:
 npm run demo
 npm run verify
 npm run export-proof
+npm run scan
 ```
 
 Verification checks:
@@ -15,3 +16,8 @@ Verification checks:
 - required artifacts
 - source package presence
 - policy gate behavior through tests
+- public boundary markers
+
+The committed `examples/runs/` directory provides static proof samples for
+review. Regenerating examples should produce the same artifact shape with new
+run IDs.

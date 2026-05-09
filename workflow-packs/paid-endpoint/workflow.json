@@ -39,12 +39,17 @@
       {
         "path": "endpoint/route-handler.ts",
         "kind": "source",
-        "content": "export function handler() { return { status: 402, payment: 'required' }; }\n"
+        "sourcePath": "source/endpoint/route-handler.ts"
       },
       {
         "path": "endpoint/openapi.json",
         "kind": "spec",
-        "content": "{ \"openapi\": \"3.1.0\", \"info\": { \"title\": \"Paid Endpoint\", \"version\": \"0.1.0\" } }\n"
+        "sourcePath": "source/endpoint/openapi.json"
+      },
+      {
+        "path": "endpoint/x402-settlement.ts",
+        "kind": "source",
+        "sourcePath": "source/endpoint/x402-settlement.ts"
       }
     ]
   }

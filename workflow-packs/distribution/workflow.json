@@ -41,7 +41,17 @@
       {
         "path": "distribution/recipient-builder.ts",
         "kind": "source",
-        "content": "export function buildRecipients() { return []; }\n"
+        "sourcePath": "source/distribution/recipient-builder.ts"
+      },
+      {
+        "path": "distribution/batch-plan.ts",
+        "kind": "source",
+        "sourcePath": "source/distribution/batch-plan.ts"
+      },
+      {
+        "path": "distribution/receipt-schema.json",
+        "kind": "schema",
+        "sourcePath": "source/distribution/receipt-schema.json"
       }
     ]
   }

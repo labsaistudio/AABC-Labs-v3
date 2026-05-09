@@ -1,0 +1,260 @@
+{
+  "runId": "market-monitor-1778345114135",
+  "workflowId": "market-monitor",
+  "txRecords": [
+    {
+      "id": "tx-1",
+      "status": "prepared",
+      "public": true,
+      "stepKey": "read-market",
+      "operationType": "read_state",
+      "signerMode": "prepare_only",
+      "chain": "solana",
+      "network": "testnet",
+      "broadcasted": false,
+      "confirmed": false,
+      "txHash": null
+    },
+    {
+      "id": "tx-2",
+      "status": "prepared",
+      "public": true,
+      "stepKey": "setup-monitor",
+      "operationType": "monitor_setup",
+      "signerMode": "session_wallet",
+      "chain": "solana",
+      "network": "testnet",
+      "broadcasted": false,
+      "confirmed": false,
+      "txHash": null
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "artifact-1",
+      "public": true,
+      "stepKey": "read-market",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for read-market",
+      "path": "artifacts/read-market-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "read-market",
+        "action": "read_state",
+        "capabilities": [
+          {
+            "id": "sendai-solana-agent-kit",
+            "layer": "agent-runtime",
+            "label": "SendAI Solana Agent Kit ecosystem",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "agent tool dispatch",
+              "policy gate envelope"
+            ]
+          },
+          {
+            "id": "jupiter-protocol",
+            "layer": "protocol",
+            "label": "Jupiter route and quote skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "route quote model",
+              "slippage envelope"
+            ]
+          },
+          {
+            "id": "raydium-protocol",
+            "layer": "protocol",
+            "label": "Raydium liquidity skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "pool state read",
+              "liquidity guardrail"
+            ]
+          },
+          {
+            "id": "helius-protocol",
+            "layer": "infra",
+            "label": "Helius indexing and webhook skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "indexing read",
+              "webhook event surface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-2",
+      "public": true,
+      "stepKey": "read-market",
+      "type": "market_snapshot",
+      "title": "read-market market_snapshot",
+      "path": "artifacts/read-market-market_snapshot.json",
+      "data": {
+        "stepKey": "read-market",
+        "generated": true
+      }
+    },
+    {
+      "id": "artifact-3",
+      "public": true,
+      "stepKey": "setup-monitor",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for setup-monitor",
+      "path": "artifacts/setup-monitor-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "setup-monitor",
+        "action": "monitor_setup",
+        "capabilities": [
+          {
+            "id": "sendai-solana-agent-kit",
+            "layer": "agent-runtime",
+            "label": "SendAI Solana Agent Kit ecosystem",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "agent tool dispatch",
+              "policy gate envelope"
+            ]
+          },
+          {
+            "id": "jupiter-protocol",
+            "layer": "protocol",
+            "label": "Jupiter route and quote skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "route quote model",
+              "slippage envelope"
+            ]
+          },
+          {
+            "id": "raydium-protocol",
+            "layer": "protocol",
+            "label": "Raydium liquidity skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "pool state read",
+              "liquidity guardrail"
+            ]
+          },
+          {
+            "id": "helius-protocol",
+            "layer": "infra",
+            "label": "Helius indexing and webhook skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "indexing read",
+              "webhook event surface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-4",
+      "public": true,
+      "stepKey": "setup-monitor",
+      "type": "monitor_rules",
+      "title": "setup-monitor monitor_rules",
+      "path": "artifacts/setup-monitor-monitor_rules.json",
+      "data": {
+        "stepKey": "setup-monitor",
+        "generated": true
+      }
+    },
+    {
+      "id": "artifact-5",
+      "public": true,
+      "stepKey": "preview",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for preview",
+      "path": "artifacts/preview-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "preview",
+        "action": "web_preview",
+        "capabilities": [
+          {
+            "id": "sendai-solana-agent-kit",
+            "layer": "agent-runtime",
+            "label": "SendAI Solana Agent Kit ecosystem",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "agent tool dispatch",
+              "policy gate envelope"
+            ]
+          },
+          {
+            "id": "jupiter-protocol",
+            "layer": "protocol",
+            "label": "Jupiter route and quote skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "route quote model",
+              "slippage envelope"
+            ]
+          },
+          {
+            "id": "raydium-protocol",
+            "layer": "protocol",
+            "label": "Raydium liquidity skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "pool state read",
+              "liquidity guardrail"
+            ]
+          },
+          {
+            "id": "helius-protocol",
+            "layer": "infra",
+            "label": "Helius indexing and webhook skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "indexing read",
+              "webhook event surface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-6",
+      "public": true,
+      "stepKey": "preview",
+      "type": "html_preview",
+      "title": "Static workflow preview",
+      "path": "artifacts/preview-preview.html",
+      "data": {
+        "preview": true
+      }
+    },
+    {
+      "id": "artifact-7",
+      "public": true,
+      "type": "source_package_manifest",
+      "title": "Source package manifest",
+      "path": "source-package",
+      "data": {
+        "files": [
+          "source-package/monitor/worker.ts",
+          "source-package/monitor/rules.json",
+          "source-package/monitor/helius-webhook.ts"
+        ]
+      }
+    }
+  ]
+}

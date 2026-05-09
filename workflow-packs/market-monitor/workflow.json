@@ -49,12 +49,17 @@
       {
         "path": "monitor/worker.ts",
         "kind": "source",
-        "content": "export function startMonitor() { return { active: true }; }\n"
+        "sourcePath": "source/monitor/worker.ts"
       },
       {
         "path": "monitor/rules.json",
         "kind": "config",
-        "content": "{ \"priceMovePercent\": 8, \"lpDepthDropPercent\": 12 }\n"
+        "sourcePath": "source/monitor/rules.json"
+      },
+      {
+        "path": "monitor/helius-webhook.ts",
+        "kind": "source",
+        "sourcePath": "source/monitor/helius-webhook.ts"
       }
     ]
   }

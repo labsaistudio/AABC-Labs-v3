@@ -1,0 +1,18 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Paid Endpoint",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/x402/wallet-risk": {
+      "post": {
+        "summary": "Reference paid endpoint contract",
+        "responses": {
+          "200": { "description": "Access granted" },
+          "402": { "description": "Payment required" }
+        }
+      }
+    }
+  }
+}

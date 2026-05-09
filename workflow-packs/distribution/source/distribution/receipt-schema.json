@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "required": ["wallet", "amount", "status"],
+  "properties": {
+    "wallet": { "type": "string" },
+    "amount": { "type": "number" },
+    "status": { "enum": ["prepared", "skipped"] }
+  }
+}

@@ -40,12 +40,17 @@
       {
         "path": "assets/metadata.json",
         "kind": "metadata",
-        "content": "{ \"name\": \"Reference Asset\", \"symbol\": \"REF\" }\n"
+        "sourcePath": "source/assets/metadata.json"
       },
       {
         "path": "assets/landing.ts",
         "kind": "source",
-        "content": "export const landing = { generated: true };\n"
+        "sourcePath": "source/assets/landing.ts"
+      },
+      {
+        "path": "assets/metaplex-manifest.ts",
+        "kind": "source",
+        "sourcePath": "source/assets/metaplex-manifest.ts"
       }
     ]
   }

@@ -39,7 +39,17 @@
       {
         "path": "trust/lock-plan.ts",
         "kind": "source",
-        "content": "export const lockPlan = { preparedOnly: true, unlockMonths: 12 };\n"
+        "sourcePath": "source/trust/lock-plan.ts"
+      },
+      {
+        "path": "trust/squads-review.ts",
+        "kind": "source",
+        "sourcePath": "source/trust/squads-review.ts"
+      },
+      {
+        "path": "trust/evidence.md",
+        "kind": "doc",
+        "sourcePath": "source/trust/evidence.md"
       }
     ]
   }

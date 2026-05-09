@@ -50,14 +50,19 @@
     "root": "source-package",
     "files": [
       {
-        "path": "program/toy-program.rs",
+        "path": "program/authority-plan.ts",
         "kind": "source",
-        "content": "pub fn initialize_program() -> &'static str { \"prepared\" }\n"
+        "sourcePath": "source/program/authority-plan.ts"
       },
       {
         "path": "scripts/deploy-plan.ts",
         "kind": "script",
-        "content": "export const deployPlan = { broadcasted: false, confirmed: false };\n"
+        "sourcePath": "source/scripts/deploy-plan.ts"
+      },
+      {
+        "path": "review/checklist.md",
+        "kind": "doc",
+        "sourcePath": "source/review/checklist.md"
       }
     ]
   }

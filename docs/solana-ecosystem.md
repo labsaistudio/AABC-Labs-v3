@@ -35,6 +35,11 @@ Each capability is marked as `external_runtime`. The public runner can declare,
 validate, and prove that a workflow uses the capability surface, but it does not
 ship live provider wiring or transaction broadcast code.
 
+Reference capability artifacts are built by
+`packages/integrations/src/solana-reference-adapters.mjs`. They add review
+signals to each run, such as route quote models, pool read checks, wallet
+approval boundaries, and x402 payment requirements.
+
 ## Workflow Usage
 
 Workflow packs reference capability IDs under `ecosystem.capabilities`. Tests

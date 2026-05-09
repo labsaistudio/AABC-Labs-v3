@@ -1,0 +1,163 @@
+{
+  "runId": "paid-endpoint-1778345114172",
+  "workflowId": "paid-endpoint",
+  "txRecords": [],
+  "artifacts": [
+    {
+      "id": "artifact-1",
+      "public": true,
+      "stepKey": "endpoint-contract",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for endpoint-contract",
+      "path": "artifacts/endpoint-contract-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "endpoint-contract",
+        "action": "paid_endpoint",
+        "capabilities": [
+          {
+            "id": "solana-web3js",
+            "layer": "chain-client",
+            "label": "Solana Web3.js",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "prepared instruction set",
+              "cluster read model"
+            ]
+          },
+          {
+            "id": "spl-token-tooling",
+            "layer": "token-tooling",
+            "label": "SPL Token tooling",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "mint authority plan",
+              "token account checks"
+            ]
+          },
+          {
+            "id": "reown-wallet-connectivity",
+            "layer": "wallet",
+            "label": "Reown wallet connectivity",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "wallet session contract",
+              "chain scope binding"
+            ]
+          },
+          {
+            "id": "x402-solana-usdc",
+            "layer": "payment",
+            "label": "x402 payment flows with Solana USDC",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "payment requirement",
+              "USDC settlement intent"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-2",
+      "public": true,
+      "stepKey": "endpoint-contract",
+      "type": "openapi_spec",
+      "title": "Paid endpoint OpenAPI contract",
+      "path": "artifacts/endpoint-contract-openapi.json",
+      "data": {
+        "method": "POST",
+        "path": "/x402/wallet-risk",
+        "payment": "required"
+      }
+    },
+    {
+      "id": "artifact-3",
+      "public": true,
+      "stepKey": "preview",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for preview",
+      "path": "artifacts/preview-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "preview",
+        "action": "web_preview",
+        "capabilities": [
+          {
+            "id": "solana-web3js",
+            "layer": "chain-client",
+            "label": "Solana Web3.js",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "prepared instruction set",
+              "cluster read model"
+            ]
+          },
+          {
+            "id": "spl-token-tooling",
+            "layer": "token-tooling",
+            "label": "SPL Token tooling",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "mint authority plan",
+              "token account checks"
+            ]
+          },
+          {
+            "id": "reown-wallet-connectivity",
+            "layer": "wallet",
+            "label": "Reown wallet connectivity",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "wallet session contract",
+              "chain scope binding"
+            ]
+          },
+          {
+            "id": "x402-solana-usdc",
+            "layer": "payment",
+            "label": "x402 payment flows with Solana USDC",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "payment requirement",
+              "USDC settlement intent"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-4",
+      "public": true,
+      "stepKey": "preview",
+      "type": "html_preview",
+      "title": "Static workflow preview",
+      "path": "artifacts/preview-preview.html",
+      "data": {
+        "preview": true
+      }
+    },
+    {
+      "id": "artifact-5",
+      "public": true,
+      "type": "source_package_manifest",
+      "title": "Source package manifest",
+      "path": "source-package",
+      "data": {
+        "files": [
+          "source-package/endpoint/route-handler.ts",
+          "source-package/endpoint/openapi.json",
+          "source-package/endpoint/x402-settlement.ts"
+        ]
+      }
+    }
+  ]
+}

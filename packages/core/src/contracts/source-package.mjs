@@ -5,6 +5,9 @@ export function validateSourcePackage(sourcePackage) {
   }
   for (const file of sourcePackage.files) {
     if (!file.path || !file.kind) throw new Error('source_package_file_shape_invalid');
+    if (!Object.hasOwn(file, 'content') && !file.sourcePath) {
+      throw new Error(`source_package_file_content_required:${file.path}`);
+    }
   }
   return true;
 }

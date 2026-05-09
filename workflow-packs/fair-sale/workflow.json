@@ -41,7 +41,17 @@
       {
         "path": "sale/claim-page.ts",
         "kind": "source",
-        "content": "export const claimPage = { vestingDays: 30, tgeUnlockPercent: 20 };\n"
+        "sourcePath": "source/sale/claim-page.ts"
+      },
+      {
+        "path": "sale/blink-action.ts",
+        "kind": "source",
+        "sourcePath": "source/sale/blink-action.ts"
+      },
+      {
+        "path": "sale/allocation-policy.json",
+        "kind": "config",
+        "sourcePath": "source/sale/allocation-policy.json"
       }
     ]
   }

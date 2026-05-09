@@ -8,6 +8,7 @@ import {
   assertSolanaStackCoverage,
   solanaCapabilityIds,
 } from '../packages/integrations/src/solana-capabilities.mjs';
+import { buildSolanaCapabilityArtifact } from '../packages/integrations/src/solana-reference-adapters.mjs';
 
 test('all workflow packs are valid and declare source packages', async () => {
   const packs = await readdir('workflow-packs');
@@ -38,4 +39,21 @@ test('workflow packs reference registered solana capabilities', async () => {
   for (const capability of REQUIRED_SOLANA_CAPABILITY_IDS) {
     assert.equal(used.has(capability), true, `missing workflow coverage:${capability}`);
   }
+});
+
+test('solana capability artifact exposes reviewable protocol signals', async () => {
+  const workflow = JSON.parse(await readFile('workflow-packs/paid-endpoint/workflow.json', 'utf8'));
+  const artifact = buildSolanaCapabilityArtifact({ workflow, step: workflow.steps[0] });
+  assert.equal(artifact.type, 'solana_capability_plan');
+  assert.ok(artifact.data.capabilities.some((item) => item.id === 'x402-solana-usdc'));
+  assert.ok(artifact.data.capabilities.every((item) => item.broadcasting === 'not_enabled_in_reference_runtime'));
+});
+
+test('solana capability artifact rejects unknown capability ids', () => {
+  assert.throws(() => buildSolanaCapabilityArtifact({
+    workflow: {
+      ecosystem: { chain: 'solana', capabilities: ['unknown-capability'] },
+    },
+    step: { key: 'bad-step', action: 'read_state' },
+  }), /unknown_solana_capability/);
 });

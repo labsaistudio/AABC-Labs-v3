@@ -1,0 +1,359 @@
+{
+  "runId": "token-program-1778345114099",
+  "workflowId": "token-program",
+  "txRecords": [
+    {
+      "id": "tx-1",
+      "status": "prepared",
+      "public": true,
+      "stepKey": "design",
+      "operationType": "generate_source",
+      "signerMode": "prepare_only",
+      "chain": "solana",
+      "network": "testnet",
+      "broadcasted": false,
+      "confirmed": false,
+      "txHash": null
+    },
+    {
+      "id": "tx-2",
+      "status": "prepared",
+      "public": true,
+      "stepKey": "prepare-deploy",
+      "operationType": "prepare_deploy",
+      "signerMode": "prepare_only",
+      "chain": "solana",
+      "network": "testnet",
+      "broadcasted": false,
+      "confirmed": false,
+      "txHash": null
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "artifact-1",
+      "public": true,
+      "stepKey": "design",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for design",
+      "path": "artifacts/design-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "design",
+        "action": "generate_source",
+        "capabilities": [
+          {
+            "id": "sendai-solana-agent-kit",
+            "layer": "agent-runtime",
+            "label": "SendAI Solana Agent Kit ecosystem",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "agent tool dispatch",
+              "policy gate envelope"
+            ]
+          },
+          {
+            "id": "solana-web3js",
+            "layer": "chain-client",
+            "label": "Solana Web3.js",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "prepared instruction set",
+              "cluster read model"
+            ]
+          },
+          {
+            "id": "spl-token-tooling",
+            "layer": "token-tooling",
+            "label": "SPL Token tooling",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "mint authority plan",
+              "token account checks"
+            ]
+          },
+          {
+            "id": "phantom-wallet-adapter",
+            "layer": "wallet",
+            "label": "Phantom wallet adapter",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "session wallet request",
+              "user approval boundary"
+            ]
+          },
+          {
+            "id": "solflare-wallet-adapter",
+            "layer": "wallet",
+            "label": "Solflare wallet adapter",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "session wallet request",
+              "user approval boundary"
+            ]
+          },
+          {
+            "id": "metaplex-protocol",
+            "layer": "protocol",
+            "label": "Metaplex asset skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "metadata manifest",
+              "asset authority plan"
+            ]
+          },
+          {
+            "id": "helius-protocol",
+            "layer": "infra",
+            "label": "Helius indexing and webhook skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "indexing read",
+              "webhook event surface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-2",
+      "public": true,
+      "stepKey": "design",
+      "type": "program_design",
+      "title": "design program_design",
+      "path": "artifacts/design-program_design.json",
+      "data": {
+        "stepKey": "design",
+        "generated": true
+      }
+    },
+    {
+      "id": "artifact-3",
+      "public": true,
+      "stepKey": "prepare-deploy",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for prepare-deploy",
+      "path": "artifacts/prepare-deploy-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "prepare-deploy",
+        "action": "prepare_tx",
+        "capabilities": [
+          {
+            "id": "sendai-solana-agent-kit",
+            "layer": "agent-runtime",
+            "label": "SendAI Solana Agent Kit ecosystem",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "agent tool dispatch",
+              "policy gate envelope"
+            ]
+          },
+          {
+            "id": "solana-web3js",
+            "layer": "chain-client",
+            "label": "Solana Web3.js",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "prepared instruction set",
+              "cluster read model"
+            ]
+          },
+          {
+            "id": "spl-token-tooling",
+            "layer": "token-tooling",
+            "label": "SPL Token tooling",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "mint authority plan",
+              "token account checks"
+            ]
+          },
+          {
+            "id": "phantom-wallet-adapter",
+            "layer": "wallet",
+            "label": "Phantom wallet adapter",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "session wallet request",
+              "user approval boundary"
+            ]
+          },
+          {
+            "id": "solflare-wallet-adapter",
+            "layer": "wallet",
+            "label": "Solflare wallet adapter",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "session wallet request",
+              "user approval boundary"
+            ]
+          },
+          {
+            "id": "metaplex-protocol",
+            "layer": "protocol",
+            "label": "Metaplex asset skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "metadata manifest",
+              "asset authority plan"
+            ]
+          },
+          {
+            "id": "helius-protocol",
+            "layer": "infra",
+            "label": "Helius indexing and webhook skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "indexing read",
+              "webhook event surface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-4",
+      "public": true,
+      "stepKey": "prepare-deploy",
+      "type": "deployment_plan",
+      "title": "prepare-deploy deployment_plan",
+      "path": "artifacts/prepare-deploy-deployment_plan.json",
+      "data": {
+        "stepKey": "prepare-deploy",
+        "generated": true
+      }
+    },
+    {
+      "id": "artifact-5",
+      "public": true,
+      "stepKey": "preview",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for preview",
+      "path": "artifacts/preview-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "preview",
+        "action": "web_preview",
+        "capabilities": [
+          {
+            "id": "sendai-solana-agent-kit",
+            "layer": "agent-runtime",
+            "label": "SendAI Solana Agent Kit ecosystem",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "agent tool dispatch",
+              "policy gate envelope"
+            ]
+          },
+          {
+            "id": "solana-web3js",
+            "layer": "chain-client",
+            "label": "Solana Web3.js",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "prepared instruction set",
+              "cluster read model"
+            ]
+          },
+          {
+            "id": "spl-token-tooling",
+            "layer": "token-tooling",
+            "label": "SPL Token tooling",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "mint authority plan",
+              "token account checks"
+            ]
+          },
+          {
+            "id": "phantom-wallet-adapter",
+            "layer": "wallet",
+            "label": "Phantom wallet adapter",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "session wallet request",
+              "user approval boundary"
+            ]
+          },
+          {
+            "id": "solflare-wallet-adapter",
+            "layer": "wallet",
+            "label": "Solflare wallet adapter",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "session wallet request",
+              "user approval boundary"
+            ]
+          },
+          {
+            "id": "metaplex-protocol",
+            "layer": "protocol",
+            "label": "Metaplex asset skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "metadata manifest",
+              "asset authority plan"
+            ]
+          },
+          {
+            "id": "helius-protocol",
+            "layer": "infra",
+            "label": "Helius indexing and webhook skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "indexing read",
+              "webhook event surface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-6",
+      "public": true,
+      "stepKey": "preview",
+      "type": "html_preview",
+      "title": "Static workflow preview",
+      "path": "artifacts/preview-preview.html",
+      "data": {
+        "preview": true
+      }
+    },
+    {
+      "id": "artifact-7",
+      "public": true,
+      "type": "source_package_manifest",
+      "title": "Source package manifest",
+      "path": "source-package",
+      "data": {
+        "files": [
+          "source-package/program/authority-plan.ts",
+          "source-package/scripts/deploy-plan.ts",
+          "source-package/review/checklist.md"
+        ]
+      }
+    }
+  ]
+}
