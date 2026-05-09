@@ -1,0 +1,61 @@
+{
+  "id": "market-monitor",
+  "title": "Market Monitor Workflow",
+  "summary": "Create a policy-checked monitoring workflow with source files and proof artifacts.",
+  "ecosystem": {
+    "chain": "solana",
+    "capabilities": [
+      "sendai-solana-agent-kit",
+      "jupiter-protocol",
+      "raydium-protocol",
+      "helius-protocol"
+    ]
+  },
+  "steps": [
+    {
+      "key": "read-market",
+      "intent": "Read market state and monitoring thresholds.",
+      "action": "read_state",
+      "riskClass": "read_only",
+      "signerMode": "prepare_only",
+      "operationType": "read_state",
+      "network": "testnet",
+      "expectedArtifacts": ["market_snapshot"]
+    },
+    {
+      "key": "setup-monitor",
+      "intent": "Prepare monitoring rules.",
+      "action": "monitor_setup",
+      "riskClass": "generate_artifact",
+      "signerMode": "session_wallet",
+      "operationType": "monitor_setup",
+      "network": "testnet",
+      "expectedArtifacts": ["monitor_rules"]
+    },
+    {
+      "key": "preview",
+      "intent": "Render a static monitor board.",
+      "action": "web_preview",
+      "riskClass": "generate_artifact",
+      "signerMode": "prepare_only",
+      "operationType": "generate_source",
+      "network": "testnet",
+      "expectedArtifacts": ["html_preview"]
+    }
+  ],
+  "sourcePackage": {
+    "root": "source-package",
+    "files": [
+      {
+        "path": "monitor/worker.ts",
+        "kind": "source",
+        "content": "export function startMonitor() { return { active: true }; }\n"
+      },
+      {
+        "path": "monitor/rules.json",
+        "kind": "config",
+        "content": "{ \"priceMovePercent\": 8, \"lpDepthDropPercent\": 12 }\n"
+      }
+    ]
+  }
+}

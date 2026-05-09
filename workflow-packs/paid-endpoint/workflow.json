@@ -1,0 +1,51 @@
+{
+  "id": "paid-endpoint",
+  "title": "Paid Endpoint Workflow",
+  "summary": "Build a paid endpoint contract with OpenAPI and proof artifacts.",
+  "ecosystem": {
+    "chain": "solana",
+    "capabilities": [
+      "solana-web3js",
+      "spl-token-tooling",
+      "reown-wallet-connectivity",
+      "x402-solana-usdc"
+    ]
+  },
+  "steps": [
+    {
+      "key": "endpoint-contract",
+      "intent": "Generate endpoint discovery and pricing contract.",
+      "action": "paid_endpoint",
+      "riskClass": "generate_artifact",
+      "signerMode": "prepare_only",
+      "operationType": "endpoint_build",
+      "network": "testnet",
+      "expectedArtifacts": ["openapi_spec"]
+    },
+    {
+      "key": "preview",
+      "intent": "Render endpoint board.",
+      "action": "web_preview",
+      "riskClass": "generate_artifact",
+      "signerMode": "prepare_only",
+      "operationType": "generate_source",
+      "network": "testnet",
+      "expectedArtifacts": ["html_preview"]
+    }
+  ],
+  "sourcePackage": {
+    "root": "source-package",
+    "files": [
+      {
+        "path": "endpoint/route-handler.ts",
+        "kind": "source",
+        "content": "export function handler() { return { status: 402, payment: 'required' }; }\n"
+      },
+      {
+        "path": "endpoint/openapi.json",
+        "kind": "spec",
+        "content": "{ \"openapi\": \"3.1.0\", \"info\": { \"title\": \"Paid Endpoint\", \"version\": \"0.1.0\" } }\n"
+      }
+    ]
+  }
+}

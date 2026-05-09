@@ -1,0 +1,52 @@
+{
+  "id": "asset-pack",
+  "title": "Asset Pack Workflow",
+  "summary": "Generate a market asset package with image and metadata manifests.",
+  "ecosystem": {
+    "chain": "solana",
+    "capabilities": [
+      "solana-web3js",
+      "phantom-wallet-adapter",
+      "solflare-wallet-adapter",
+      "blinks-solana-actions",
+      "metaplex-protocol"
+    ]
+  },
+  "steps": [
+    {
+      "key": "asset-manifest",
+      "intent": "Generate a public asset manifest.",
+      "action": "asset_manifest",
+      "riskClass": "generate_artifact",
+      "signerMode": "prepare_only",
+      "operationType": "generate_source",
+      "network": "testnet",
+      "expectedArtifacts": ["asset_manifest"]
+    },
+    {
+      "key": "landing-preview",
+      "intent": "Render an asset landing preview.",
+      "action": "web_preview",
+      "riskClass": "generate_artifact",
+      "signerMode": "prepare_only",
+      "operationType": "generate_source",
+      "network": "testnet",
+      "expectedArtifacts": ["html_preview"]
+    }
+  ],
+  "sourcePackage": {
+    "root": "source-package",
+    "files": [
+      {
+        "path": "assets/metadata.json",
+        "kind": "metadata",
+        "content": "{ \"name\": \"Reference Asset\", \"symbol\": \"REF\" }\n"
+      },
+      {
+        "path": "assets/landing.ts",
+        "kind": "source",
+        "content": "export const landing = { generated: true };\n"
+      }
+    ]
+  }
+}

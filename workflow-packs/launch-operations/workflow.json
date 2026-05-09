@@ -1,0 +1,49 @@
+{
+  "id": "launch-operations",
+  "title": "Launch Operations Workflow",
+  "summary": "Prepare launch operations checkpoints, route plans, and proof artifacts.",
+  "ecosystem": {
+    "chain": "solana",
+    "capabilities": [
+      "sendai-solana-agent-kit",
+      "solana-web3js",
+      "jupiter-protocol",
+      "raydium-protocol",
+      "helius-protocol",
+      "reown-wallet-connectivity"
+    ]
+  },
+  "steps": [
+    {
+      "key": "source-check",
+      "intent": "Check launch sources and risk inputs.",
+      "action": "read_state",
+      "riskClass": "read_only",
+      "signerMode": "prepare_only",
+      "operationType": "read_state",
+      "network": "testnet",
+      "expectedArtifacts": ["source_check"]
+    },
+    {
+      "key": "route-plan",
+      "intent": "Prepare a route plan without broadcasting.",
+      "action": "prepare_tx",
+      "riskClass": "prepare_tx",
+      "signerMode": "prepare_only",
+      "operationType": "prepare_transfer",
+      "network": "testnet",
+      "estimatedValueUsd": 25,
+      "expectedArtifacts": ["route_plan"]
+    }
+  ],
+  "sourcePackage": {
+    "root": "source-package",
+    "files": [
+      {
+        "path": "ops/route-planner.ts",
+        "kind": "source",
+        "content": "export const routePlan = { broadcasted: false, maxSlippageBps: 120 };\n"
+      }
+    ]
+  }
+}

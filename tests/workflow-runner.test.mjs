@@ -1,0 +1,17 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { runWorkflow } from '../packages/core/src/runner/workflow-runner.mjs';
+
+test('workflow runner writes event log, proof feed, html proof, and source package', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aabc-v3-'));
+  const workflow = JSON.parse(await readFile('workflow-packs/token-program/workflow.json', 'utf8'));
+  const result = await runWorkflow({ workflow, outDir: dir });
+  assert.equal(result.feed.workflowId, 'token-program');
+  assert.ok(result.feed.artifacts.some((artifact) => artifact.type === 'source_package_manifest'));
+  assert.ok((await readFile(join(dir, 'events.jsonl'), 'utf8')).includes('workflow_started'));
+  assert.ok((await readFile(join(dir, 'proof.html'), 'utf8')).includes('AABC Labs v3 Proof'));
+  await rm(dir, { recursive: true, force: true });
+});

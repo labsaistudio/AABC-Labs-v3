@@ -1,0 +1,17 @@
+export const FORBIDDEN_PUBLIC_FIELDS = [
+  'privateKey',
+  'private_key',
+  'mnemonic',
+  'seedPhrase',
+  'seed_phrase',
+  'rawTxJson',
+  'raw_tx_json',
+  'receiptJson',
+  'receipt_json',
+  'contractSourceCode',
+  'contract_source_code',
+  'apiKey',
+  'api_key',
+  'secret',
+  'token',
+];

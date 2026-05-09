@@ -1,0 +1,30 @@
+{
+  "name": "aabc-labs-v3",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Proof-first agent workflows for Web3 operations.",
+  "bin": {
+    "aabc-v3": "./cli/src/index.mjs"
+  },
+  "scripts": {
+    "demo": "node cli/src/index.mjs run workflow-packs/token-program/workflow.json --out .outcome/runs/token-program",
+    "demo:market": "node cli/src/index.mjs run workflow-packs/market-monitor/workflow.json --out .outcome/runs/market-monitor",
+    "verify": "node cli/src/index.mjs verify .outcome/runs/token-program",
+    "export-proof": "node cli/src/index.mjs export-proof .outcome/runs/token-program",
+    "studio": "node apps/studio/server.mjs",
+    "scan": "node cli/src/index.mjs scan .",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "keywords": [
+    "agent",
+    "web3",
+    "solana",
+    "x402",
+    "proof",
+    "workflow",
+    "policy",
+    "audit"
+  ],
+  "license": "MIT"
+}

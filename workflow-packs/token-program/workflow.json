@@ -1,0 +1,64 @@
+{
+  "id": "token-program",
+  "title": "Token Program Workflow",
+  "summary": "Prepare a reviewable token program package with policy-checked deployment proof.",
+  "ecosystem": {
+    "chain": "solana",
+    "capabilities": [
+      "sendai-solana-agent-kit",
+      "solana-web3js",
+      "spl-token-tooling",
+      "phantom-wallet-adapter",
+      "solflare-wallet-adapter",
+      "metaplex-protocol",
+      "helius-protocol"
+    ]
+  },
+  "steps": [
+    {
+      "key": "design",
+      "intent": "Create the program design and configuration.",
+      "action": "generate_source",
+      "riskClass": "generate_artifact",
+      "signerMode": "prepare_only",
+      "operationType": "generate_source",
+      "network": "testnet",
+      "expectedArtifacts": ["program_design"]
+    },
+    {
+      "key": "prepare-deploy",
+      "intent": "Prepare a deployment transaction without broadcasting.",
+      "action": "prepare_tx",
+      "riskClass": "prepare_tx",
+      "signerMode": "prepare_only",
+      "operationType": "prepare_deploy",
+      "network": "testnet",
+      "expectedArtifacts": ["deployment_plan"]
+    },
+    {
+      "key": "preview",
+      "intent": "Render a static delivery preview.",
+      "action": "web_preview",
+      "riskClass": "generate_artifact",
+      "signerMode": "prepare_only",
+      "operationType": "generate_source",
+      "network": "testnet",
+      "expectedArtifacts": ["html_preview"]
+    }
+  ],
+  "sourcePackage": {
+    "root": "source-package",
+    "files": [
+      {
+        "path": "program/toy-program.rs",
+        "kind": "source",
+        "content": "pub fn initialize_program() -> &'static str { \"prepared\" }\n"
+      },
+      {
+        "path": "scripts/deploy-plan.ts",
+        "kind": "script",
+        "content": "export const deployPlan = { broadcasted: false, confirmed: false };\n"
+      }
+    ]
+  }
+}

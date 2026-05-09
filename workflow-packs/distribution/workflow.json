@@ -1,0 +1,48 @@
+{
+  "id": "distribution",
+  "title": "Distribution Workflow",
+  "summary": "Prepare a recipient distribution package with receipts and retry policy.",
+  "ecosystem": {
+    "chain": "solana",
+    "capabilities": [
+      "solana-web3js",
+      "spl-token-tooling",
+      "phantom-wallet-adapter",
+      "solflare-wallet-adapter",
+      "blinks-solana-actions"
+    ]
+  },
+  "steps": [
+    {
+      "key": "recipient-build",
+      "intent": "Build a recipient list and tier allocation.",
+      "action": "generate_source",
+      "riskClass": "generate_artifact",
+      "signerMode": "prepare_only",
+      "operationType": "generate_source",
+      "network": "testnet",
+      "expectedArtifacts": ["recipient_manifest"]
+    },
+    {
+      "key": "batch-prepare",
+      "intent": "Prepare a capped distribution batch.",
+      "action": "prepare_tx",
+      "riskClass": "prepare_tx",
+      "signerMode": "prepare_only",
+      "operationType": "prepare_transfer",
+      "network": "testnet",
+      "estimatedValueUsd": 50,
+      "expectedArtifacts": ["batch_plan"]
+    }
+  ],
+  "sourcePackage": {
+    "root": "source-package",
+    "files": [
+      {
+        "path": "distribution/recipient-builder.ts",
+        "kind": "source",
+        "content": "export function buildRecipients() { return []; }\n"
+      }
+    ]
+  }
+}

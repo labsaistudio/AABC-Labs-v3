@@ -1,0 +1,48 @@
+{
+  "id": "fair-sale",
+  "title": "Fair Sale Workflow",
+  "summary": "Prepare a fair sale package with allocation and claim artifacts.",
+  "ecosystem": {
+    "chain": "solana",
+    "capabilities": [
+      "sendai-solana-agent-kit",
+      "solana-web3js",
+      "spl-token-tooling",
+      "reown-wallet-connectivity",
+      "blinks-solana-actions",
+      "squads-protocol"
+    ]
+  },
+  "steps": [
+    {
+      "key": "sale-config",
+      "intent": "Generate sale parameters and allocation plan.",
+      "action": "generate_source",
+      "riskClass": "generate_artifact",
+      "signerMode": "prepare_only",
+      "operationType": "generate_source",
+      "network": "testnet",
+      "expectedArtifacts": ["sale_config"]
+    },
+    {
+      "key": "claim-preview",
+      "intent": "Render a claim page preview.",
+      "action": "web_preview",
+      "riskClass": "generate_artifact",
+      "signerMode": "prepare_only",
+      "operationType": "generate_source",
+      "network": "testnet",
+      "expectedArtifacts": ["html_preview"]
+    }
+  ],
+  "sourcePackage": {
+    "root": "source-package",
+    "files": [
+      {
+        "path": "sale/claim-page.ts",
+        "kind": "source",
+        "content": "export const claimPage = { vestingDays: 30, tgeUnlockPercent: 20 };\n"
+      }
+    ]
+  }
+}

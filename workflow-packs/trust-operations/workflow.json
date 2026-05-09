@@ -1,0 +1,46 @@
+{
+  "id": "trust-operations",
+  "title": "Trust Operations Workflow",
+  "summary": "Prepare trust operation records with policy-checked irreversible gates.",
+  "ecosystem": {
+    "chain": "solana",
+    "capabilities": [
+      "solana-web3js",
+      "helius-protocol",
+      "squads-protocol",
+      "raydium-protocol"
+    ]
+  },
+  "steps": [
+    {
+      "key": "authority-scan",
+      "intent": "Scan authorities and public trust signals.",
+      "action": "read_state",
+      "riskClass": "read_only",
+      "signerMode": "prepare_only",
+      "operationType": "read_state",
+      "network": "testnet",
+      "expectedArtifacts": ["authority_scan"]
+    },
+    {
+      "key": "lock-plan",
+      "intent": "Prepare a lock plan without confirming mainnet execution.",
+      "action": "prepare_tx",
+      "riskClass": "prepare_tx",
+      "signerMode": "prepare_only",
+      "operationType": "lp_lock",
+      "network": "testnet",
+      "expectedArtifacts": ["lock_plan"]
+    }
+  ],
+  "sourcePackage": {
+    "root": "source-package",
+    "files": [
+      {
+        "path": "trust/lock-plan.ts",
+        "kind": "source",
+        "content": "export const lockPlan = { preparedOnly: true, unlockMonths: 12 };\n"
+      }
+    ]
+  }
+}
