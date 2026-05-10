@@ -58,6 +58,8 @@ the generated proof shape without running anything first.
   mode is not allowed.
 - The proof ledger records prepared transactions, generated artifacts, and
   redacted public feeds.
+- Session key mode turns a temporary Solana session wallet into a scoped,
+  revocable, proof-bound authorization contract.
 - The runner emits an event log that can be replayed.
 - The source package manifest ensures a workflow delivers reviewable files,
   not only a final summary.
@@ -97,6 +99,8 @@ They are examples of the architecture, not the project boundary.
   source package delivery.
 - `packages/policy` for signer modes, operation types, risk classes, and value
   gates.
+- `packages/session` for the public session key mode contract used by
+  session-wallet workflow steps.
 - `packages/proof` for redaction, public proof feeds, transaction records, and
   static proof export.
 - `packages/integrations` for the public Solana capability surface.

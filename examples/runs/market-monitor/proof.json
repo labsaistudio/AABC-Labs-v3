@@ -1,5 +1,5 @@
 {
-  "runId": "market-monitor-1778345114135",
+  "runId": "market-monitor-1778402132520",
   "workflowId": "market-monitor",
   "txRecords": [
     {
@@ -105,6 +105,22 @@
       "id": "artifact-3",
       "public": true,
       "stepKey": "setup-monitor",
+      "type": "policy_gate_decision",
+      "title": "Policy gate decision for setup-monitor",
+      "path": "artifacts/setup-monitor-policy-gate-decision.json",
+      "data": {
+        "stepKey": "setup-monitor",
+        "allowed": true,
+        "reason": "allowed",
+        "signerMode": "session_wallet",
+        "operationType": "monitor_setup",
+        "network": "testnet"
+      }
+    },
+    {
+      "id": "artifact-4",
+      "public": true,
+      "stepKey": "setup-monitor",
       "type": "solana_capability_plan",
       "title": "Solana capability plan for setup-monitor",
       "path": "artifacts/setup-monitor-solana-capabilities.json",
@@ -161,7 +177,42 @@
       }
     },
     {
-      "id": "artifact-4",
+      "id": "artifact-5",
+      "public": true,
+      "stepKey": "setup-monitor",
+      "type": "session_key_mode_contract",
+      "title": "Session key mode contract for setup-monitor",
+      "path": "artifacts/setup-monitor-session-key-mode.json",
+      "data": {
+        "stepKey": "setup-monitor",
+        "workflowId": "market-monitor",
+        "chain": "solana",
+        "signerMode": "session_wallet",
+        "scope": {
+          "allowedOperations": [
+            "monitor_setup"
+          ],
+          "maxSpendUsd": 0,
+          "validForMinutes": 60,
+          "revocation": "owner_can_revoke"
+        },
+        "safety": {
+          "signingMaterial": "not_in_public_contract",
+          "broadcasting": "policy_checked_before_execution",
+          "requiredProof": [
+            "policy_gate_decision",
+            "session_key_mode_contract",
+            "source_package_manifest"
+          ],
+          "proofArtifacts": [
+            "monitor_rules"
+          ]
+        },
+        "signingMaterial": "not_in_public_contract"
+      }
+    },
+    {
+      "id": "artifact-6",
       "public": true,
       "stepKey": "setup-monitor",
       "type": "monitor_rules",
@@ -173,7 +224,7 @@
       }
     },
     {
-      "id": "artifact-5",
+      "id": "artifact-7",
       "public": true,
       "stepKey": "preview",
       "type": "solana_capability_plan",
@@ -232,7 +283,7 @@
       }
     },
     {
-      "id": "artifact-6",
+      "id": "artifact-8",
       "public": true,
       "stepKey": "preview",
       "type": "html_preview",
@@ -243,7 +294,7 @@
       }
     },
     {
-      "id": "artifact-7",
+      "id": "artifact-9",
       "public": true,
       "type": "source_package_manifest",
       "title": "Source package manifest",
@@ -252,7 +303,8 @@
         "files": [
           "source-package/monitor/worker.ts",
           "source-package/monitor/rules.json",
-          "source-package/monitor/helius-webhook.ts"
+          "source-package/monitor/helius-webhook.ts",
+          "source-package/monitor/session-key-policy.ts"
         ]
       }
     }

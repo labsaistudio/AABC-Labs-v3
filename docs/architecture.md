@@ -6,6 +6,7 @@ AABC Labs v3 is organized around proof-first workflow execution.
 Workflow Pack
   -> Outcome Contract
   -> Policy Engine
+  -> Session Key Contract
   -> Workflow Runner
   -> Event Log
   -> Proof Ledger
@@ -22,6 +23,8 @@ policy checks, proof capture, and source delivery.
   completion.
 - `policy-engine` evaluates signer modes, risk classes, operation types, chain
   rules, and value thresholds.
+- `session-key-mode` describes scoped Solana session-wallet authorization,
+  revocation, proof requirements, and the public boundary for signing material.
 - `proof-ledger` records transactions and artifacts, redacts public feeds, and
   exports proof pages.
 - `adapters` provide safe reference integrations for local demos.

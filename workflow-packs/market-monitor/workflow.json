@@ -30,6 +30,7 @@
       "signerMode": "session_wallet",
       "operationType": "monitor_setup",
       "network": "testnet",
+      "estimatedValueUsd": 0,
       "expectedArtifacts": ["monitor_rules"]
     },
     {
@@ -60,6 +61,11 @@
         "path": "monitor/helius-webhook.ts",
         "kind": "source",
         "sourcePath": "source/monitor/helius-webhook.ts"
+      },
+      {
+        "path": "monitor/session-key-policy.ts",
+        "kind": "source",
+        "sourcePath": "source/monitor/session-key-policy.ts"
       }
     ]
   }

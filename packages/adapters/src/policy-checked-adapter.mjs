@@ -1,4 +1,5 @@
 import { evaluatePolicy } from '../../policy/src/operation-policy-gate.mjs';
+import { SignerMode } from '../../policy/src/signer-mode.mjs';
 import { referenceAdapter } from './reference-adapter.mjs';
 
 export async function policyCheckedAdapter({ step, workflow }) {
@@ -16,5 +17,30 @@ export async function policyCheckedAdapter({ step, workflow }) {
       }],
     };
   }
-  return referenceAdapter({ step, workflow });
+  const result = await referenceAdapter({ step, workflow });
+  if (step.signerMode !== SignerMode.SESSION_WALLET) return result;
+  return {
+    ...result,
+    artifacts: [
+      policyGateDecisionArtifact({ step, decision }),
+      ...result.artifacts,
+    ],
+  };
+}
+
+function policyGateDecisionArtifact({ step, decision }) {
+  return {
+    type: 'policy_gate_decision',
+    title: `Policy gate decision for ${step.key}`,
+    path: `artifacts/${step.key}-policy-gate-decision.json`,
+    data: {
+      stepKey: step.key,
+      allowed: decision.allowed,
+      reason: decision.reason,
+      signerMode: step.signerMode,
+      operationType: step.operationType,
+      network: step.network,
+    },
+    public: true,
+  };
 }
