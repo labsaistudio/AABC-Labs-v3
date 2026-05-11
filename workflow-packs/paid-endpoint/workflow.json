@@ -15,6 +15,9 @@
       "qvac-openai-compatible-http",
       "qvac-p2p-runtime",
       "qvac-local-rag"
+    ],
+    "frontierCapabilities": [
+      "palm-usd-settlement"
     ]
   },
   "steps": [
@@ -27,6 +30,7 @@
       "operationType": "endpoint_build",
       "network": "testnet",
       "qvacRuntime": true,
+      "frontierRuntime": true,
       "expectedArtifacts": ["openapi_spec"]
     },
     {
@@ -62,6 +66,11 @@
         "path": "endpoint/qvac-runtime-policy.ts",
         "kind": "source",
         "sourcePath": "source/endpoint/qvac-runtime-policy.ts"
+      },
+      {
+        "path": "endpoint/palm-usd-settlement.ts",
+        "kind": "source",
+        "sourcePath": "source/endpoint/palm-usd-settlement.ts"
       }
     ]
   }

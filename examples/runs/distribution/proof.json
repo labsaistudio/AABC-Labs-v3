@@ -1,0 +1,248 @@
+{
+  "runId": "distribution-1778489064911",
+  "workflowId": "distribution",
+  "txRecords": [
+    {
+      "id": "tx-1",
+      "status": "prepared",
+      "public": true,
+      "stepKey": "recipient-build",
+      "operationType": "generate_source",
+      "signerMode": "prepare_only",
+      "chain": "solana",
+      "network": "testnet",
+      "broadcasted": false,
+      "confirmed": false,
+      "txHash": null
+    },
+    {
+      "id": "tx-2",
+      "status": "prepared",
+      "public": true,
+      "stepKey": "batch-prepare",
+      "operationType": "prepare_transfer",
+      "signerMode": "prepare_only",
+      "chain": "solana",
+      "network": "testnet",
+      "broadcasted": false,
+      "confirmed": false,
+      "txHash": null
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "artifact-1",
+      "public": true,
+      "stepKey": "recipient-build",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for recipient-build",
+      "path": "artifacts/recipient-build-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "recipient-build",
+        "action": "generate_source",
+        "capabilities": [
+          {
+            "id": "solana-web3js",
+            "layer": "chain-client",
+            "label": "Solana Web3.js",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "prepared instruction set",
+              "cluster read model"
+            ]
+          },
+          {
+            "id": "spl-token-tooling",
+            "layer": "token-tooling",
+            "label": "SPL Token tooling",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "mint authority plan",
+              "token account checks"
+            ]
+          },
+          {
+            "id": "phantom-wallet-adapter",
+            "layer": "wallet",
+            "label": "Phantom wallet adapter",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "session wallet request",
+              "user approval boundary"
+            ]
+          },
+          {
+            "id": "solflare-wallet-adapter",
+            "layer": "wallet",
+            "label": "Solflare wallet adapter",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "session wallet request",
+              "user approval boundary"
+            ]
+          },
+          {
+            "id": "blinks-solana-actions",
+            "layer": "action-surface",
+            "label": "Blinks and Solana Actions",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "action manifest",
+              "shareable execution surface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-2",
+      "public": true,
+      "stepKey": "recipient-build",
+      "type": "frontier_capability_plan",
+      "title": "Frontier capability plan for recipient-build",
+      "path": "artifacts/recipient-build-frontier-capabilities.json",
+      "data": {
+        "stepKey": "recipient-build",
+        "runtime": "frontier_sponsor_surface",
+        "runtimeBoundary": {
+          "execution": "external_runtime",
+          "credentials": "not_in_public_repository",
+          "liveSdk": "not_bundled_in_reference_runtime",
+          "broadcasting": "not_enabled_in_reference_runtime"
+        },
+        "capabilities": [
+          {
+            "id": "torque-mcp-growth",
+            "chain": "solana",
+            "layer": "growth",
+            "label": "Torque MCP campaign and incentive surface",
+            "sourceUrl": "https://superteam.fun/earn/listing/build-with-torque-mcp-1",
+            "execution": "external_runtime",
+            "credentialBoundary": "not_in_public_repository",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "campaign intent contract",
+              "reward eligibility boundary",
+              "MCP action review surface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-3",
+      "public": true,
+      "stepKey": "recipient-build",
+      "type": "recipient_manifest",
+      "title": "recipient-build recipient_manifest",
+      "path": "artifacts/recipient-build-recipient_manifest.json",
+      "data": {
+        "stepKey": "recipient-build",
+        "generated": true
+      }
+    },
+    {
+      "id": "artifact-4",
+      "public": true,
+      "stepKey": "batch-prepare",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for batch-prepare",
+      "path": "artifacts/batch-prepare-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "batch-prepare",
+        "action": "prepare_tx",
+        "capabilities": [
+          {
+            "id": "solana-web3js",
+            "layer": "chain-client",
+            "label": "Solana Web3.js",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "prepared instruction set",
+              "cluster read model"
+            ]
+          },
+          {
+            "id": "spl-token-tooling",
+            "layer": "token-tooling",
+            "label": "SPL Token tooling",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "mint authority plan",
+              "token account checks"
+            ]
+          },
+          {
+            "id": "phantom-wallet-adapter",
+            "layer": "wallet",
+            "label": "Phantom wallet adapter",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "session wallet request",
+              "user approval boundary"
+            ]
+          },
+          {
+            "id": "solflare-wallet-adapter",
+            "layer": "wallet",
+            "label": "Solflare wallet adapter",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "session wallet request",
+              "user approval boundary"
+            ]
+          },
+          {
+            "id": "blinks-solana-actions",
+            "layer": "action-surface",
+            "label": "Blinks and Solana Actions",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "action manifest",
+              "shareable execution surface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-5",
+      "public": true,
+      "stepKey": "batch-prepare",
+      "type": "batch_plan",
+      "title": "batch-prepare batch_plan",
+      "path": "artifacts/batch-prepare-batch_plan.json",
+      "data": {
+        "stepKey": "batch-prepare",
+        "generated": true
+      }
+    },
+    {
+      "id": "artifact-6",
+      "public": true,
+      "type": "source_package_manifest",
+      "title": "Source package manifest",
+      "path": "source-package",
+      "data": {
+        "files": [
+          "source-package/distribution/recipient-builder.ts",
+          "source-package/distribution/batch-plan.ts",
+          "source-package/distribution/torque-mcp-policy.ts",
+          "source-package/distribution/receipt-schema.json"
+        ]
+      }
+    }
+  ]
+}

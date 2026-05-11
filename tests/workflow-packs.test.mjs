@@ -15,6 +15,12 @@ import {
   qvacCapabilityIds,
 } from '../packages/integrations/src/qvac-capabilities.mjs';
 import { buildQvacRuntimeArtifact } from '../packages/integrations/src/qvac-reference-adapters.mjs';
+import {
+  REQUIRED_FRONTIER_CAPABILITY_IDS,
+  assertFrontierStackCoverage,
+  frontierCapabilityIds,
+} from '../packages/integrations/src/frontier-capabilities.mjs';
+import { buildFrontierCapabilityArtifact } from '../packages/integrations/src/frontier-reference-adapters.mjs';
 
 test('all workflow packs are valid and declare source packages', async () => {
   const packs = await readdir('workflow-packs');
@@ -90,4 +96,33 @@ test('qvac runtime artifact exposes public-safe local inference boundary', async
   assert.ok(artifact.data.capabilities.some((item) => item.id === 'qvac-openai-compatible-http'));
   assert.equal(artifact.data.runtimeBoundary.modelWeights, 'not_in_public_repository');
   assert.equal(artifact.data.runtimeBoundary.remoteProviderKey, 'not_required_for_local_runtime');
+});
+
+test('frontier capability registry covers sponsor tracks', () => {
+  assert.equal(assertFrontierStackCoverage(), true);
+});
+
+test('workflow packs can declare registered frontier capabilities', async () => {
+  const registered = new Set(frontierCapabilityIds());
+  const used = new Set();
+  for (const pack of await readdir('workflow-packs')) {
+    const workflow = JSON.parse(await readFile(join('workflow-packs', pack, 'workflow.json'), 'utf8'));
+    for (const capability of workflow.ecosystem?.frontierCapabilities || []) {
+      assert.equal(registered.has(capability), true, `${workflow.id}:${capability}`);
+      used.add(capability);
+    }
+  }
+  for (const capability of REQUIRED_FRONTIER_CAPABILITY_IDS) {
+    assert.equal(used.has(capability), true, `missing frontier workflow coverage:${capability}`);
+  }
+});
+
+test('frontier artifact exposes public-safe sponsor integration boundary', async () => {
+  const workflow = JSON.parse(await readFile('workflow-packs/distribution/workflow.json', 'utf8'));
+  const step = workflow.steps.find((item) => item.frontierRuntime === true);
+  const artifact = buildFrontierCapabilityArtifact({ workflow, step });
+  assert.equal(artifact.type, 'frontier_capability_plan');
+  assert.ok(artifact.data.capabilities.some((item) => item.id === 'torque-mcp-growth'));
+  assert.equal(artifact.data.runtimeBoundary.credentials, 'not_in_public_repository');
+  assert.equal(artifact.data.runtimeBoundary.liveSdk, 'not_bundled_in_reference_runtime');
 });

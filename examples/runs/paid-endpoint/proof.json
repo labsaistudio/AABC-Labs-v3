@@ -1,5 +1,5 @@
 {
-  "runId": "paid-endpoint-1778488246703",
+  "runId": "paid-endpoint-1778489064989",
   "workflowId": "paid-endpoint",
   "txRecords": [],
   "artifacts": [
@@ -135,6 +135,41 @@
       "id": "artifact-3",
       "public": true,
       "stepKey": "endpoint-contract",
+      "type": "frontier_capability_plan",
+      "title": "Frontier capability plan for endpoint-contract",
+      "path": "artifacts/endpoint-contract-frontier-capabilities.json",
+      "data": {
+        "stepKey": "endpoint-contract",
+        "runtime": "frontier_sponsor_surface",
+        "runtimeBoundary": {
+          "execution": "external_runtime",
+          "credentials": "not_in_public_repository",
+          "liveSdk": "not_bundled_in_reference_runtime",
+          "broadcasting": "not_enabled_in_reference_runtime"
+        },
+        "capabilities": [
+          {
+            "id": "palm-usd-settlement",
+            "chain": "solana",
+            "layer": "payment",
+            "label": "Palm USD settlement surface",
+            "sourceUrl": "https://superteam.fun/earn/listing/palm-usd-x-superteam-uae-solana-builders-1",
+            "execution": "external_runtime",
+            "credentialBoundary": "not_in_public_repository",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "settlement currency policy",
+              "payment route boundary",
+              "treasury approval state"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-4",
+      "public": true,
+      "stepKey": "endpoint-contract",
       "type": "openapi_spec",
       "title": "Paid endpoint OpenAPI contract",
       "path": "artifacts/endpoint-contract-openapi.json",
@@ -145,7 +180,7 @@
       }
     },
     {
-      "id": "artifact-4",
+      "id": "artifact-5",
       "public": true,
       "stepKey": "preview",
       "type": "solana_capability_plan",
@@ -204,7 +239,7 @@
       }
     },
     {
-      "id": "artifact-5",
+      "id": "artifact-6",
       "public": true,
       "stepKey": "preview",
       "type": "html_preview",
@@ -215,7 +250,7 @@
       }
     },
     {
-      "id": "artifact-6",
+      "id": "artifact-7",
       "public": true,
       "type": "source_package_manifest",
       "title": "Source package manifest",
@@ -225,7 +260,8 @@
           "source-package/endpoint/route-handler.ts",
           "source-package/endpoint/openapi.json",
           "source-package/endpoint/x402-settlement.ts",
-          "source-package/endpoint/qvac-runtime-policy.ts"
+          "source-package/endpoint/qvac-runtime-policy.ts",
+          "source-package/endpoint/palm-usd-settlement.ts"
         ]
       }
     }

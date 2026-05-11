@@ -10,6 +10,9 @@
       "phantom-wallet-adapter",
       "solflare-wallet-adapter",
       "blinks-solana-actions"
+    ],
+    "frontierCapabilities": [
+      "torque-mcp-growth"
     ]
   },
   "steps": [
@@ -21,6 +24,7 @@
       "signerMode": "prepare_only",
       "operationType": "generate_source",
       "network": "testnet",
+      "frontierRuntime": true,
       "expectedArtifacts": ["recipient_manifest"]
     },
     {
@@ -47,6 +51,11 @@
         "path": "distribution/batch-plan.ts",
         "kind": "source",
         "sourcePath": "source/distribution/batch-plan.ts"
+      },
+      {
+        "path": "distribution/torque-mcp-policy.ts",
+        "kind": "source",
+        "sourcePath": "source/distribution/torque-mcp-policy.ts"
       },
       {
         "path": "distribution/receipt-schema.json",

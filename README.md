@@ -67,6 +67,9 @@ the generated proof shape without running anything first.
   private runtime wiring.
 - QVAC is represented as a local-first AI runtime contract for private
   inference, OpenAI-compatible HTTP access, P2P execution, and local RAG.
+- Frontier sponsor integrations are represented as public capability contracts
+  for Torque MCP growth, Solana RPC infrastructure credits, and Palm USD
+  settlement.
 
 ## Solana Ecosystem Surface
 
@@ -79,6 +82,13 @@ It also includes a QVAC capability registry for local AI inference, an
 OpenAI-compatible local HTTP API surface, P2P runtime coordination, and local
 RAG boundaries. The public runtime declares and proves these boundaries without
 bundling model weights or production QVAC wiring.
+
+Frontier sponsor surfaces are modeled with the same public-safe boundary:
+Torque MCP can attach to distribution and growth workflows, RPC infrastructure
+credits can attach to live market monitoring workflows, and Palm USD can attach
+to paid endpoint settlement workflows. The reference runtime records the
+capability plan and source files without bundling production credentials or
+live sponsor SDK wiring.
 
 See `docs/solana-ecosystem.md` for the public boundary.
 
@@ -110,7 +120,8 @@ They are examples of the architecture, not the project boundary.
   session-wallet workflow steps.
 - `packages/proof` for redaction, public proof feeds, transaction records, and
   static proof export.
-- `packages/integrations` for the public Solana capability surface.
+- `packages/integrations` for the public Solana, QVAC, and Frontier sponsor
+  capability contracts.
 - `workflow-packs/*/source` for sanitized source packages that represent what a
   completed agent workflow should hand back to a user.
 - `examples/runs` for generated proof output.

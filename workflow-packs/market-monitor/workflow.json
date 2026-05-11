@@ -9,6 +9,9 @@
       "jupiter-protocol",
       "raydium-protocol",
       "helius-protocol"
+    ],
+    "frontierCapabilities": [
+      "rpc-infrastructure-credits"
     ]
   },
   "steps": [
@@ -20,6 +23,7 @@
       "signerMode": "prepare_only",
       "operationType": "read_state",
       "network": "testnet",
+      "frontierRuntime": true,
       "expectedArtifacts": ["market_snapshot"]
     },
     {
@@ -61,6 +65,11 @@
         "path": "monitor/helius-webhook.ts",
         "kind": "source",
         "sourcePath": "source/monitor/helius-webhook.ts"
+      },
+      {
+        "path": "monitor/rpc-infrastructure-policy.ts",
+        "kind": "source",
+        "sourcePath": "source/monitor/rpc-infrastructure-policy.ts"
       },
       {
         "path": "monitor/session-key-policy.ts",

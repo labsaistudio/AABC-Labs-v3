@@ -1,5 +1,5 @@
 {
-  "runId": "market-monitor-1778402132520",
+  "runId": "market-monitor-1778489064945",
   "workflowId": "market-monitor",
   "txRecords": [
     {
@@ -93,6 +93,41 @@
       "id": "artifact-2",
       "public": true,
       "stepKey": "read-market",
+      "type": "frontier_capability_plan",
+      "title": "Frontier capability plan for read-market",
+      "path": "artifacts/read-market-frontier-capabilities.json",
+      "data": {
+        "stepKey": "read-market",
+        "runtime": "frontier_sponsor_surface",
+        "runtimeBoundary": {
+          "execution": "external_runtime",
+          "credentials": "not_in_public_repository",
+          "liveSdk": "not_bundled_in_reference_runtime",
+          "broadcasting": "not_enabled_in_reference_runtime"
+        },
+        "capabilities": [
+          {
+            "id": "rpc-infrastructure-credits",
+            "chain": "solana",
+            "layer": "infrastructure",
+            "label": "Solana RPC infrastructure credit surface",
+            "sourceUrl": "https://superteam.fun/earn/listing/dollar10000-in-rpc-infrastructure-credits-for-colosseum-frontier-hackathon",
+            "execution": "external_runtime",
+            "credentialBoundary": "not_in_public_repository",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "read path routing policy",
+              "provider budget envelope",
+              "monitoring latency class"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-3",
+      "public": true,
+      "stepKey": "read-market",
       "type": "market_snapshot",
       "title": "read-market market_snapshot",
       "path": "artifacts/read-market-market_snapshot.json",
@@ -102,7 +137,7 @@
       }
     },
     {
-      "id": "artifact-3",
+      "id": "artifact-4",
       "public": true,
       "stepKey": "setup-monitor",
       "type": "policy_gate_decision",
@@ -118,7 +153,7 @@
       }
     },
     {
-      "id": "artifact-4",
+      "id": "artifact-5",
       "public": true,
       "stepKey": "setup-monitor",
       "type": "solana_capability_plan",
@@ -177,7 +212,7 @@
       }
     },
     {
-      "id": "artifact-5",
+      "id": "artifact-6",
       "public": true,
       "stepKey": "setup-monitor",
       "type": "session_key_mode_contract",
@@ -212,7 +247,7 @@
       }
     },
     {
-      "id": "artifact-6",
+      "id": "artifact-7",
       "public": true,
       "stepKey": "setup-monitor",
       "type": "monitor_rules",
@@ -224,7 +259,7 @@
       }
     },
     {
-      "id": "artifact-7",
+      "id": "artifact-8",
       "public": true,
       "stepKey": "preview",
       "type": "solana_capability_plan",
@@ -283,7 +318,7 @@
       }
     },
     {
-      "id": "artifact-8",
+      "id": "artifact-9",
       "public": true,
       "stepKey": "preview",
       "type": "html_preview",
@@ -294,7 +329,7 @@
       }
     },
     {
-      "id": "artifact-9",
+      "id": "artifact-10",
       "public": true,
       "type": "source_package_manifest",
       "title": "Source package manifest",
@@ -304,6 +339,7 @@
           "source-package/monitor/worker.ts",
           "source-package/monitor/rules.json",
           "source-package/monitor/helius-webhook.ts",
+          "source-package/monitor/rpc-infrastructure-policy.ts",
           "source-package/monitor/session-key-policy.ts"
         ]
       }

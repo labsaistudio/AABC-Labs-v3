@@ -38,3 +38,33 @@ test('workflow runner emits qvac runtime proof for paid endpoint workflow', asyn
   assert.ok((await readFile(join(dir, 'source-package/endpoint/qvac-runtime-policy.ts'), 'utf8')).includes('qvacRuntimePolicy'));
   await rm(dir, { recursive: true, force: true });
 });
+
+test('workflow runner emits frontier proof for Torque MCP distribution workflow', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aabc-v3-torque-'));
+  const workflow = JSON.parse(await readFile('workflow-packs/distribution/workflow.json', 'utf8'));
+  workflow.sourcePackage.baseDir = resolve('workflow-packs/distribution');
+  const result = await runWorkflow({ workflow, outDir: dir });
+  assert.ok(result.feed.artifacts.some((artifact) => artifact.type === 'frontier_capability_plan'));
+  assert.ok((await readFile(join(dir, 'source-package/distribution/torque-mcp-policy.ts'), 'utf8')).includes('torqueMcpPolicy'));
+  await rm(dir, { recursive: true, force: true });
+});
+
+test('workflow runner emits frontier proof for RPC infrastructure monitor workflow', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aabc-v3-rpc-'));
+  const workflow = JSON.parse(await readFile('workflow-packs/market-monitor/workflow.json', 'utf8'));
+  workflow.sourcePackage.baseDir = resolve('workflow-packs/market-monitor');
+  const result = await runWorkflow({ workflow, outDir: dir });
+  assert.ok(result.feed.artifacts.some((artifact) => artifact.type === 'frontier_capability_plan'));
+  assert.ok((await readFile(join(dir, 'source-package/monitor/rpc-infrastructure-policy.ts'), 'utf8')).includes('rpcInfrastructurePolicy'));
+  await rm(dir, { recursive: true, force: true });
+});
+
+test('workflow runner emits frontier proof for Palm USD endpoint workflow', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aabc-v3-palm-'));
+  const workflow = JSON.parse(await readFile('workflow-packs/paid-endpoint/workflow.json', 'utf8'));
+  workflow.sourcePackage.baseDir = resolve('workflow-packs/paid-endpoint');
+  const result = await runWorkflow({ workflow, outDir: dir });
+  assert.ok(result.feed.artifacts.some((artifact) => artifact.type === 'frontier_capability_plan'));
+  assert.ok((await readFile(join(dir, 'source-package/endpoint/palm-usd-settlement.ts'), 'utf8')).includes('palmUsdSettlementPolicy'));
+  await rm(dir, { recursive: true, force: true });
+});

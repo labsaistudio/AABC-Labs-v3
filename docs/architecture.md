@@ -29,7 +29,8 @@ policy checks, proof capture, and source delivery.
   exports proof pages.
 - `adapters` provide safe reference integrations for local demos.
 - `integrations` declares public Solana capability surfaces for wallet,
-  protocol, payment, indexing, and QVAC local AI runtime boundaries.
+  protocol, payment, indexing, QVAC local AI runtime boundaries, and Frontier
+  sponsor capability contracts.
 
 ## Workflow Packs
 
