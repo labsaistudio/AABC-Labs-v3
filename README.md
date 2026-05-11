@@ -76,6 +76,11 @@ the generated proof shape without running anything first.
   boundaries for trust operation workflows.
 - Umbra is represented as a privacy SDK boundary for fair sale and claim
   workflows.
+- Cloak is represented as a privacy payment boundary for paid endpoint
+  workflows.
+- SNS is represented as an identity and naming boundary for asset workflows.
+- Jito and LI.FI are represented as transaction landing and cross-chain routing
+  boundaries for launch operations.
 
 ## Solana Ecosystem Surface
 
@@ -104,6 +109,11 @@ Encrypt and Ika attach to trust operations as encrypted intent and bridgeless
 custody boundaries. Umbra attaches to fair sale workflows as a privacy and
 recipient reveal policy boundary. RPC infrastructure credits remain attached to
 market monitoring workflows.
+
+Cloak attaches to paid endpoints as a privacy payment and receipt redaction
+boundary. SNS attaches to asset workflows as a name, profile, and ownership
+review boundary. Jito and LI.FI attach to launch operations as prepared-only
+transaction landing and cross-chain route planning boundaries.
 
 See `docs/solana-ecosystem.md` for the public boundary.
 

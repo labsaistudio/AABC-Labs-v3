@@ -10,6 +10,9 @@
       "solflare-wallet-adapter",
       "blinks-solana-actions",
       "metaplex-protocol"
+    ],
+    "frontierCapabilities": [
+      "sns-identity-layer"
     ]
   },
   "steps": [
@@ -21,6 +24,7 @@
       "signerMode": "prepare_only",
       "operationType": "generate_source",
       "network": "testnet",
+      "frontierRuntime": true,
       "expectedArtifacts": ["asset_manifest"]
     },
     {
@@ -51,6 +55,11 @@
         "path": "assets/metaplex-manifest.ts",
         "kind": "source",
         "sourcePath": "source/assets/metaplex-manifest.ts"
+      },
+      {
+        "path": "assets/sns-identity-policy.ts",
+        "kind": "source",
+        "sourcePath": "source/assets/sns-identity-policy.ts"
       }
     ]
   }

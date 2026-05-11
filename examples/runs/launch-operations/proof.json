@@ -1,5 +1,5 @@
 {
-  "runId": "launch-operations-1778494687061",
+  "runId": "launch-operations-1778497054514",
   "workflowId": "launch-operations",
   "txRecords": [
     {
@@ -235,6 +235,36 @@
               "swap instruction preparation boundary",
               "credential boundary"
             ]
+          },
+          {
+            "id": "jito-infrastructure",
+            "chain": "solana",
+            "layer": "infrastructure",
+            "label": "Jito transaction infrastructure surface",
+            "sourceUrl": "https://superteam.fun/earn/listing/build-on-top-of-jito-infrastructure",
+            "execution": "external_runtime",
+            "credentialBoundary": "not_in_public_repository",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "transaction landing policy",
+              "bundle preparation boundary",
+              "tip budget review"
+            ]
+          },
+          {
+            "id": "lifi-cross-chain-routing",
+            "chain": "solana",
+            "layer": "cross-chain",
+            "label": "LI.FI cross-chain routing surface",
+            "sourceUrl": "https://superteam.fun/earn/listing/build-with-lifi-superteam-germany",
+            "execution": "external_runtime",
+            "credentialBoundary": "not_in_public_repository",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "cross-chain route intent",
+              "bridge risk envelope",
+              "destination settlement review"
+            ]
           }
         ]
       }
@@ -262,6 +292,8 @@
           "source-package/ops/route-planner.ts",
           "source-package/ops/liquidity-checks.ts",
           "source-package/ops/jupiter-developer-platform-policy.ts",
+          "source-package/ops/jito-infrastructure-policy.ts",
+          "source-package/ops/lifi-cross-chain-policy.ts",
           "source-package/ops/runbook.md"
         ]
       }

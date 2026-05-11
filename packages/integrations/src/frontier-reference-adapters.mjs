@@ -36,6 +36,26 @@ const SIGNALS = Object.freeze({
     'recipient reveal policy',
     'public artifact redaction',
   ],
+  'cloak-privacy-payments': [
+    'privacy payment boundary',
+    'merchant settlement review',
+    'public receipt redaction',
+  ],
+  'sns-identity-layer': [
+    'name resolution boundary',
+    'profile ownership review',
+    'identity-linked asset surface',
+  ],
+  'jito-infrastructure': [
+    'transaction landing policy',
+    'bundle preparation boundary',
+    'tip budget review',
+  ],
+  'lifi-cross-chain-routing': [
+    'cross-chain route intent',
+    'bridge risk envelope',
+    'destination settlement review',
+  ],
 });
 
 export function buildFrontierCapabilityArtifact({ workflow, step }) {

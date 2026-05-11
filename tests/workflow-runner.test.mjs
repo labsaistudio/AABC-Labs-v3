@@ -98,3 +98,23 @@ test('workflow runner emits frontier proof for Umbra fair sale workflow', async 
   assert.ok((await readFile(join(dir, 'source-package/sale/umbra-privacy-policy.ts'), 'utf8')).includes('umbraPrivacyPolicy'));
   await rm(dir, { recursive: true, force: true });
 });
+
+test('workflow runner emits frontier proof for Cloak paid endpoint workflow', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aabc-v3-cloak-'));
+  const workflow = JSON.parse(await readFile('workflow-packs/paid-endpoint/workflow.json', 'utf8'));
+  workflow.sourcePackage.baseDir = resolve('workflow-packs/paid-endpoint');
+  const result = await runWorkflow({ workflow, outDir: dir });
+  assert.ok(result.feed.artifacts.some((artifact) => artifact.type === 'frontier_capability_plan'));
+  assert.ok((await readFile(join(dir, 'source-package/endpoint/cloak-privacy-payment-policy.ts'), 'utf8')).includes('cloakPrivacyPaymentPolicy'));
+  await rm(dir, { recursive: true, force: true });
+});
+
+test('workflow runner emits frontier proof for SNS identity asset workflow', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aabc-v3-sns-'));
+  const workflow = JSON.parse(await readFile('workflow-packs/asset-pack/workflow.json', 'utf8'));
+  workflow.sourcePackage.baseDir = resolve('workflow-packs/asset-pack');
+  const result = await runWorkflow({ workflow, outDir: dir });
+  assert.ok(result.feed.artifacts.some((artifact) => artifact.type === 'frontier_capability_plan'));
+  assert.ok((await readFile(join(dir, 'source-package/assets/sns-identity-policy.ts'), 'utf8')).includes('snsIdentityPolicy'));
+  await rm(dir, { recursive: true, force: true });
+});

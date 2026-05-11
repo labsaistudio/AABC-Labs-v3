@@ -6,6 +6,10 @@ export const REQUIRED_FRONTIER_CAPABILITY_IDS = Object.freeze([
   'encrypt-encrypted-capital-markets',
   'ika-bridgeless-capital-markets',
   'umbra-privacy-sdk',
+  'cloak-privacy-payments',
+  'sns-identity-layer',
+  'jito-infrastructure',
+  'lifi-cross-chain-routing',
 ]);
 
 export const FRONTIER_CAPABILITIES = Object.freeze([
@@ -50,6 +54,30 @@ export const FRONTIER_CAPABILITIES = Object.freeze([
     'privacy',
     'Umbra privacy SDK surface',
     'https://superteam.fun/earn/listing/umbra-side-track',
+  ),
+  capability(
+    'cloak-privacy-payments',
+    'privacy-payment',
+    'Cloak privacy payment surface',
+    'https://superteam.fun/earn/listing/cloak-track',
+  ),
+  capability(
+    'sns-identity-layer',
+    'identity',
+    'SNS identity and naming surface',
+    'https://superteam.fun/earn/listing/sns-identity-track-colosseum-hackathon-powered-by-sns-stmy-magicblock',
+  ),
+  capability(
+    'jito-infrastructure',
+    'infrastructure',
+    'Jito transaction infrastructure surface',
+    'https://superteam.fun/earn/listing/build-on-top-of-jito-infrastructure',
+  ),
+  capability(
+    'lifi-cross-chain-routing',
+    'cross-chain',
+    'LI.FI cross-chain routing surface',
+    'https://superteam.fun/earn/listing/build-with-lifi-superteam-germany',
   ),
 ]);
 

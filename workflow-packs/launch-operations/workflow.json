@@ -13,7 +13,9 @@
       "reown-wallet-connectivity"
     ],
     "frontierCapabilities": [
-      "jupiter-developer-platform"
+      "jupiter-developer-platform",
+      "jito-infrastructure",
+      "lifi-cross-chain-routing"
     ]
   },
   "steps": [
@@ -57,6 +59,16 @@
         "path": "ops/jupiter-developer-platform-policy.ts",
         "kind": "source",
         "sourcePath": "source/ops/jupiter-developer-platform-policy.ts"
+      },
+      {
+        "path": "ops/jito-infrastructure-policy.ts",
+        "kind": "source",
+        "sourcePath": "source/ops/jito-infrastructure-policy.ts"
+      },
+      {
+        "path": "ops/lifi-cross-chain-policy.ts",
+        "kind": "source",
+        "sourcePath": "source/ops/lifi-cross-chain-policy.ts"
       },
       {
         "path": "ops/runbook.md",

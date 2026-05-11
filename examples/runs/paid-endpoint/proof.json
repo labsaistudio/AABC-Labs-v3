@@ -1,5 +1,5 @@
 {
-  "runId": "paid-endpoint-1778489064989",
+  "runId": "paid-endpoint-1778497054504",
   "workflowId": "paid-endpoint",
   "txRecords": [],
   "artifacts": [
@@ -162,6 +162,21 @@
               "payment route boundary",
               "treasury approval state"
             ]
+          },
+          {
+            "id": "cloak-privacy-payments",
+            "chain": "solana",
+            "layer": "privacy-payment",
+            "label": "Cloak privacy payment surface",
+            "sourceUrl": "https://superteam.fun/earn/listing/cloak-track",
+            "execution": "external_runtime",
+            "credentialBoundary": "not_in_public_repository",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "privacy payment boundary",
+              "merchant settlement review",
+              "public receipt redaction"
+            ]
           }
         ]
       }
@@ -261,7 +276,8 @@
           "source-package/endpoint/openapi.json",
           "source-package/endpoint/x402-settlement.ts",
           "source-package/endpoint/qvac-runtime-policy.ts",
-          "source-package/endpoint/palm-usd-settlement.ts"
+          "source-package/endpoint/palm-usd-settlement.ts",
+          "source-package/endpoint/cloak-privacy-payment-policy.ts"
         ]
       }
     }

@@ -17,7 +17,8 @@
       "qvac-local-rag"
     ],
     "frontierCapabilities": [
-      "palm-usd-settlement"
+      "palm-usd-settlement",
+      "cloak-privacy-payments"
     ]
   },
   "steps": [
@@ -71,6 +72,11 @@
         "path": "endpoint/palm-usd-settlement.ts",
         "kind": "source",
         "sourcePath": "source/endpoint/palm-usd-settlement.ts"
+      },
+      {
+        "path": "endpoint/cloak-privacy-payment-policy.ts",
+        "kind": "source",
+        "sourcePath": "source/endpoint/cloak-privacy-payment-policy.ts"
       }
     ]
   }

@@ -150,3 +150,24 @@ test('frontier artifact exposes Umbra privacy boundary', async () => {
   assert.ok(artifact.data.capabilities.some((item) => item.id === 'umbra-privacy-sdk'));
   assert.equal(artifact.data.capabilities.some((item) => item.reviewSignals.includes('privacy proof boundary')), true);
 });
+
+test('frontier artifact exposes Cloak privacy payment boundary', async () => {
+  const workflow = JSON.parse(await readFile('workflow-packs/paid-endpoint/workflow.json', 'utf8'));
+  const artifact = buildFrontierCapabilityArtifact({ workflow, step: workflow.steps[0] });
+  assert.ok(artifact.data.capabilities.some((item) => item.id === 'cloak-privacy-payments'));
+});
+
+test('frontier artifact exposes SNS identity boundary', async () => {
+  const workflow = JSON.parse(await readFile('workflow-packs/asset-pack/workflow.json', 'utf8'));
+  const step = workflow.steps.find((item) => item.frontierRuntime === true);
+  const artifact = buildFrontierCapabilityArtifact({ workflow, step });
+  assert.ok(artifact.data.capabilities.some((item) => item.id === 'sns-identity-layer'));
+});
+
+test('frontier artifact exposes Jito and LI.FI launch boundaries', async () => {
+  const workflow = JSON.parse(await readFile('workflow-packs/launch-operations/workflow.json', 'utf8'));
+  const step = workflow.steps.find((item) => item.frontierRuntime === true);
+  const artifact = buildFrontierCapabilityArtifact({ workflow, step });
+  assert.ok(artifact.data.capabilities.some((item) => item.id === 'jito-infrastructure'));
+  assert.ok(artifact.data.capabilities.some((item) => item.id === 'lifi-cross-chain-routing'));
+});

@@ -1,0 +1,9 @@
+{
+  "name": "Reference Asset",
+  "symbol": "REF",
+  "description": "Public-safe sample asset metadata for AABC Labs v3.",
+  "attributes": [
+    { "trait_type": "Runtime", "value": "proof-first" },
+    { "trait_type": "Chain", "value": "solana" }
+  ]
+}
