@@ -65,6 +65,8 @@ the generated proof shape without running anything first.
   not only a final summary.
 - Solana integrations are represented as public capability contracts before
   private runtime wiring.
+- QVAC is represented as a local-first AI runtime contract for private
+  inference, OpenAI-compatible HTTP access, P2P execution, and local RAG.
 
 ## Solana Ecosystem Surface
 
@@ -72,6 +74,11 @@ AABC Labs v3 includes a typed Solana capability registry for SendAI Solana
 Agent Kit, Solana Web3.js, SPL Token tooling, Phantom, Solflare, Reown, Blinks,
 Solana Actions, Jupiter, Raydium, Metaplex, Helius, Squads, and x402 Solana
 USDC payment flows.
+
+It also includes a QVAC capability registry for local AI inference, an
+OpenAI-compatible local HTTP API surface, P2P runtime coordination, and local
+RAG boundaries. The public runtime declares and proves these boundaries without
+bundling model weights or production QVAC wiring.
 
 See `docs/solana-ecosystem.md` for the public boundary.
 

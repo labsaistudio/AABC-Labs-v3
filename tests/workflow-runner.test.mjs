@@ -28,3 +28,13 @@ test('workflow runner emits session key mode proof for session wallet steps', as
   assert.ok((await readFile(join(dir, 'source-package/monitor/session-key-policy.ts'), 'utf8')).includes('sessionKeyPolicy'));
   await rm(dir, { recursive: true, force: true });
 });
+
+test('workflow runner emits qvac runtime proof for paid endpoint workflow', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aabc-v3-qvac-'));
+  const workflow = JSON.parse(await readFile('workflow-packs/paid-endpoint/workflow.json', 'utf8'));
+  workflow.sourcePackage.baseDir = resolve('workflow-packs/paid-endpoint');
+  const result = await runWorkflow({ workflow, outDir: dir });
+  assert.ok(result.feed.artifacts.some((artifact) => artifact.type === 'qvac_runtime_plan'));
+  assert.ok((await readFile(join(dir, 'source-package/endpoint/qvac-runtime-policy.ts'), 'utf8')).includes('qvacRuntimePolicy'));
+  await rm(dir, { recursive: true, force: true });
+});

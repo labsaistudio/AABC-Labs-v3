@@ -9,6 +9,12 @@
       "spl-token-tooling",
       "reown-wallet-connectivity",
       "x402-solana-usdc"
+    ],
+    "qvacCapabilities": [
+      "qvac-local-inference",
+      "qvac-openai-compatible-http",
+      "qvac-p2p-runtime",
+      "qvac-local-rag"
     ]
   },
   "steps": [
@@ -20,6 +26,7 @@
       "signerMode": "prepare_only",
       "operationType": "endpoint_build",
       "network": "testnet",
+      "qvacRuntime": true,
       "expectedArtifacts": ["openapi_spec"]
     },
     {
@@ -50,6 +57,11 @@
         "path": "endpoint/x402-settlement.ts",
         "kind": "source",
         "sourcePath": "source/endpoint/x402-settlement.ts"
+      },
+      {
+        "path": "endpoint/qvac-runtime-policy.ts",
+        "kind": "source",
+        "sourcePath": "source/endpoint/qvac-runtime-policy.ts"
       }
     ]
   }
