@@ -11,6 +11,9 @@
       "raydium-protocol",
       "helius-protocol",
       "reown-wallet-connectivity"
+    ],
+    "frontierCapabilities": [
+      "jupiter-developer-platform"
     ]
   },
   "steps": [
@@ -33,6 +36,7 @@
       "operationType": "prepare_transfer",
       "network": "testnet",
       "estimatedValueUsd": 25,
+      "frontierRuntime": true,
       "expectedArtifacts": ["route_plan"]
     }
   ],
@@ -48,6 +52,11 @@
         "path": "ops/liquidity-checks.ts",
         "kind": "source",
         "sourcePath": "source/ops/liquidity-checks.ts"
+      },
+      {
+        "path": "ops/jupiter-developer-platform-policy.ts",
+        "kind": "source",
+        "sourcePath": "source/ops/jupiter-developer-platform-policy.ts"
       },
       {
         "path": "ops/runbook.md",

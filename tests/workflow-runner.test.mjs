@@ -68,3 +68,13 @@ test('workflow runner emits frontier proof for Palm USD endpoint workflow', asyn
   assert.ok((await readFile(join(dir, 'source-package/endpoint/palm-usd-settlement.ts'), 'utf8')).includes('palmUsdSettlementPolicy'));
   await rm(dir, { recursive: true, force: true });
 });
+
+test('workflow runner emits frontier proof for Jupiter developer platform workflow', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aabc-v3-jupiter-'));
+  const workflow = JSON.parse(await readFile('workflow-packs/launch-operations/workflow.json', 'utf8'));
+  workflow.sourcePackage.baseDir = resolve('workflow-packs/launch-operations');
+  const result = await runWorkflow({ workflow, outDir: dir });
+  assert.ok(result.feed.artifacts.some((artifact) => artifact.type === 'frontier_capability_plan'));
+  assert.ok((await readFile(join(dir, 'source-package/ops/jupiter-developer-platform-policy.ts'), 'utf8')).includes('jupiterDeveloperPlatformPolicy'));
+  await rm(dir, { recursive: true, force: true });
+});

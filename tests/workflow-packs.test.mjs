@@ -126,3 +126,11 @@ test('frontier artifact exposes public-safe sponsor integration boundary', async
   assert.equal(artifact.data.runtimeBoundary.credentials, 'not_in_public_repository');
   assert.equal(artifact.data.runtimeBoundary.liveSdk, 'not_bundled_in_reference_runtime');
 });
+
+test('frontier artifact exposes Jupiter developer platform boundary', async () => {
+  const workflow = JSON.parse(await readFile('workflow-packs/launch-operations/workflow.json', 'utf8'));
+  const step = workflow.steps.find((item) => item.frontierRuntime === true);
+  const artifact = buildFrontierCapabilityArtifact({ workflow, step });
+  assert.ok(artifact.data.capabilities.some((item) => item.id === 'jupiter-developer-platform'));
+  assert.equal(artifact.data.capabilities.some((item) => item.reviewSignals.includes('quote and route surface')), true);
+});

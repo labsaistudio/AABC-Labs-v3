@@ -2,6 +2,7 @@ export const REQUIRED_FRONTIER_CAPABILITY_IDS = Object.freeze([
   'torque-mcp-growth',
   'rpc-infrastructure-credits',
   'palm-usd-settlement',
+  'jupiter-developer-platform',
 ]);
 
 export const FRONTIER_CAPABILITIES = Object.freeze([
@@ -22,6 +23,12 @@ export const FRONTIER_CAPABILITIES = Object.freeze([
     'payment',
     'Palm USD settlement surface',
     'https://superteam.fun/earn/listing/palm-usd-x-superteam-uae-solana-builders-1',
+  ),
+  capability(
+    'jupiter-developer-platform',
+    'liquidity',
+    'Jupiter Developer Platform routing surface',
+    'https://superteam.fun/earn/listing/not-your-regular-bounty',
   ),
 ]);
 

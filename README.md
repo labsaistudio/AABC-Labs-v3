@@ -70,6 +70,8 @@ the generated proof shape without running anything first.
 - Frontier sponsor integrations are represented as public capability contracts
   for Torque MCP growth, Solana RPC infrastructure credits, and Palm USD
   settlement.
+- Jupiter Developer Platform is represented as a routing and quote capability
+  boundary for prepared launch operations.
 
 ## Solana Ecosystem Surface
 
@@ -89,6 +91,10 @@ credits can attach to live market monitoring workflows, and Palm USD can attach
 to paid endpoint settlement workflows. The reference runtime records the
 capability plan and source files without bundling production credentials or
 live sponsor SDK wiring.
+
+The Jupiter developer surface attaches to launch operations as a prepared-only
+quote, price, token search, and swap-instruction planning layer. Production
+credentials stay outside the public repository.
 
 See `docs/solana-ecosystem.md` for the public boundary.
 

@@ -16,6 +16,11 @@ const SIGNALS = Object.freeze({
     'payment route boundary',
     'treasury approval state',
   ],
+  'jupiter-developer-platform': [
+    'quote and route surface',
+    'swap instruction preparation boundary',
+    'credential boundary',
+  ],
 });
 
 export function buildFrontierCapabilityArtifact({ workflow, step }) {
