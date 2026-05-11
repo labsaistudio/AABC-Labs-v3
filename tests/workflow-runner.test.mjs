@@ -78,3 +78,23 @@ test('workflow runner emits frontier proof for Jupiter developer platform workfl
   assert.ok((await readFile(join(dir, 'source-package/ops/jupiter-developer-platform-policy.ts'), 'utf8')).includes('jupiterDeveloperPlatformPolicy'));
   await rm(dir, { recursive: true, force: true });
 });
+
+test('workflow runner emits frontier proof for Encrypt and Ika trust workflow', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aabc-v3-encrypt-ika-'));
+  const workflow = JSON.parse(await readFile('workflow-packs/trust-operations/workflow.json', 'utf8'));
+  workflow.sourcePackage.baseDir = resolve('workflow-packs/trust-operations');
+  const result = await runWorkflow({ workflow, outDir: dir });
+  assert.ok(result.feed.artifacts.some((artifact) => artifact.type === 'frontier_capability_plan'));
+  assert.ok((await readFile(join(dir, 'source-package/trust/encrypt-ika-policy.ts'), 'utf8')).includes('encryptIkaPolicy'));
+  await rm(dir, { recursive: true, force: true });
+});
+
+test('workflow runner emits frontier proof for Umbra fair sale workflow', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aabc-v3-umbra-'));
+  const workflow = JSON.parse(await readFile('workflow-packs/fair-sale/workflow.json', 'utf8'));
+  workflow.sourcePackage.baseDir = resolve('workflow-packs/fair-sale');
+  const result = await runWorkflow({ workflow, outDir: dir });
+  assert.ok(result.feed.artifacts.some((artifact) => artifact.type === 'frontier_capability_plan'));
+  assert.ok((await readFile(join(dir, 'source-package/sale/umbra-privacy-policy.ts'), 'utf8')).includes('umbraPrivacyPolicy'));
+  await rm(dir, { recursive: true, force: true });
+});

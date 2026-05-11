@@ -134,3 +134,19 @@ test('frontier artifact exposes Jupiter developer platform boundary', async () =
   assert.ok(artifact.data.capabilities.some((item) => item.id === 'jupiter-developer-platform'));
   assert.equal(artifact.data.capabilities.some((item) => item.reviewSignals.includes('quote and route surface')), true);
 });
+
+test('frontier artifact exposes Encrypt and Ika capital markets boundary', async () => {
+  const workflow = JSON.parse(await readFile('workflow-packs/trust-operations/workflow.json', 'utf8'));
+  const step = workflow.steps.find((item) => item.frontierRuntime === true);
+  const artifact = buildFrontierCapabilityArtifact({ workflow, step });
+  assert.ok(artifact.data.capabilities.some((item) => item.id === 'encrypt-encrypted-capital-markets'));
+  assert.ok(artifact.data.capabilities.some((item) => item.id === 'ika-bridgeless-capital-markets'));
+});
+
+test('frontier artifact exposes Umbra privacy boundary', async () => {
+  const workflow = JSON.parse(await readFile('workflow-packs/fair-sale/workflow.json', 'utf8'));
+  const step = workflow.steps.find((item) => item.frontierRuntime === true);
+  const artifact = buildFrontierCapabilityArtifact({ workflow, step });
+  assert.ok(artifact.data.capabilities.some((item) => item.id === 'umbra-privacy-sdk'));
+  assert.equal(artifact.data.capabilities.some((item) => item.reviewSignals.includes('privacy proof boundary')), true);
+});

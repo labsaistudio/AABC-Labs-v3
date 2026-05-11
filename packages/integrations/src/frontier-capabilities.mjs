@@ -3,6 +3,9 @@ export const REQUIRED_FRONTIER_CAPABILITY_IDS = Object.freeze([
   'rpc-infrastructure-credits',
   'palm-usd-settlement',
   'jupiter-developer-platform',
+  'encrypt-encrypted-capital-markets',
+  'ika-bridgeless-capital-markets',
+  'umbra-privacy-sdk',
 ]);
 
 export const FRONTIER_CAPABILITIES = Object.freeze([
@@ -29,6 +32,24 @@ export const FRONTIER_CAPABILITIES = Object.freeze([
     'liquidity',
     'Jupiter Developer Platform routing surface',
     'https://superteam.fun/earn/listing/not-your-regular-bounty',
+  ),
+  capability(
+    'encrypt-encrypted-capital-markets',
+    'privacy',
+    'Encrypt encrypted capital markets surface',
+    'https://superteam.fun/earn/listing/encrypt-ika-frontier-april-2026',
+  ),
+  capability(
+    'ika-bridgeless-capital-markets',
+    'capital-markets',
+    'Ika bridgeless capital markets surface',
+    'https://superteam.fun/earn/listing/encrypt-ika-frontier-april-2026',
+  ),
+  capability(
+    'umbra-privacy-sdk',
+    'privacy',
+    'Umbra privacy SDK surface',
+    'https://superteam.fun/earn/listing/umbra-side-track',
   ),
 ]);
 

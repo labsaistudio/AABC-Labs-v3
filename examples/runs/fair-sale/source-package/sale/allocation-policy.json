@@ -1,0 +1,6 @@
+{
+  "vestingDays": 30,
+  "tgeUnlockPercent": 20,
+  "requiresMultisigReview": true,
+  "broadcasting": "not_enabled_in_reference_runtime"
+}

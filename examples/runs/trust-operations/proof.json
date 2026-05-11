@@ -1,0 +1,241 @@
+{
+  "runId": "trust-operations-1778495173711",
+  "workflowId": "trust-operations",
+  "txRecords": [
+    {
+      "id": "tx-1",
+      "status": "prepared",
+      "public": true,
+      "stepKey": "authority-scan",
+      "operationType": "read_state",
+      "signerMode": "prepare_only",
+      "chain": "solana",
+      "network": "testnet",
+      "broadcasted": false,
+      "confirmed": false,
+      "txHash": null
+    },
+    {
+      "id": "tx-2",
+      "status": "prepared",
+      "public": true,
+      "stepKey": "lock-plan",
+      "operationType": "lp_lock",
+      "signerMode": "prepare_only",
+      "chain": "solana",
+      "network": "testnet",
+      "broadcasted": false,
+      "confirmed": false,
+      "txHash": null
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "artifact-1",
+      "public": true,
+      "stepKey": "authority-scan",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for authority-scan",
+      "path": "artifacts/authority-scan-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "authority-scan",
+        "action": "read_state",
+        "capabilities": [
+          {
+            "id": "solana-web3js",
+            "layer": "chain-client",
+            "label": "Solana Web3.js",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "prepared instruction set",
+              "cluster read model"
+            ]
+          },
+          {
+            "id": "helius-protocol",
+            "layer": "infra",
+            "label": "Helius indexing and webhook skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "indexing read",
+              "webhook event surface"
+            ]
+          },
+          {
+            "id": "squads-protocol",
+            "layer": "governance",
+            "label": "Squads multisig skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "multisig review step",
+              "approval threshold"
+            ]
+          },
+          {
+            "id": "raydium-protocol",
+            "layer": "protocol",
+            "label": "Raydium liquidity skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "pool state read",
+              "liquidity guardrail"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-2",
+      "public": true,
+      "stepKey": "authority-scan",
+      "type": "authority_scan",
+      "title": "authority-scan authority_scan",
+      "path": "artifacts/authority-scan-authority_scan.json",
+      "data": {
+        "stepKey": "authority-scan",
+        "generated": true
+      }
+    },
+    {
+      "id": "artifact-3",
+      "public": true,
+      "stepKey": "lock-plan",
+      "type": "solana_capability_plan",
+      "title": "Solana capability plan for lock-plan",
+      "path": "artifacts/lock-plan-solana-capabilities.json",
+      "data": {
+        "chain": "solana",
+        "stepKey": "lock-plan",
+        "action": "prepare_tx",
+        "capabilities": [
+          {
+            "id": "solana-web3js",
+            "layer": "chain-client",
+            "label": "Solana Web3.js",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "prepared instruction set",
+              "cluster read model"
+            ]
+          },
+          {
+            "id": "helius-protocol",
+            "layer": "infra",
+            "label": "Helius indexing and webhook skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "indexing read",
+              "webhook event surface"
+            ]
+          },
+          {
+            "id": "squads-protocol",
+            "layer": "governance",
+            "label": "Squads multisig skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "multisig review step",
+              "approval threshold"
+            ]
+          },
+          {
+            "id": "raydium-protocol",
+            "layer": "protocol",
+            "label": "Raydium liquidity skills",
+            "execution": "external_runtime",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "pool state read",
+              "liquidity guardrail"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-4",
+      "public": true,
+      "stepKey": "lock-plan",
+      "type": "frontier_capability_plan",
+      "title": "Frontier capability plan for lock-plan",
+      "path": "artifacts/lock-plan-frontier-capabilities.json",
+      "data": {
+        "stepKey": "lock-plan",
+        "runtime": "frontier_sponsor_surface",
+        "runtimeBoundary": {
+          "execution": "external_runtime",
+          "credentials": "not_in_public_repository",
+          "liveSdk": "not_bundled_in_reference_runtime",
+          "broadcasting": "not_enabled_in_reference_runtime"
+        },
+        "capabilities": [
+          {
+            "id": "encrypt-encrypted-capital-markets",
+            "chain": "solana",
+            "layer": "privacy",
+            "label": "Encrypt encrypted capital markets surface",
+            "sourceUrl": "https://superteam.fun/earn/listing/encrypt-ika-frontier-april-2026",
+            "execution": "external_runtime",
+            "credentialBoundary": "not_in_public_repository",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "encrypted order intent boundary",
+              "confidential state review",
+              "public proof envelope"
+            ]
+          },
+          {
+            "id": "ika-bridgeless-capital-markets",
+            "chain": "solana",
+            "layer": "capital-markets",
+            "label": "Ika bridgeless capital markets surface",
+            "sourceUrl": "https://superteam.fun/earn/listing/encrypt-ika-frontier-april-2026",
+            "execution": "external_runtime",
+            "credentialBoundary": "not_in_public_repository",
+            "broadcasting": "not_enabled_in_reference_runtime",
+            "reviewSignals": [
+              "bridgeless custody boundary",
+              "cross-chain authorization review",
+              "dWallet policy surface"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "artifact-5",
+      "public": true,
+      "stepKey": "lock-plan",
+      "type": "lock_plan",
+      "title": "lock-plan lock_plan",
+      "path": "artifacts/lock-plan-lock_plan.json",
+      "data": {
+        "stepKey": "lock-plan",
+        "generated": true
+      }
+    },
+    {
+      "id": "artifact-6",
+      "public": true,
+      "type": "source_package_manifest",
+      "title": "Source package manifest",
+      "path": "source-package",
+      "data": {
+        "files": [
+          "source-package/trust/lock-plan.ts",
+          "source-package/trust/squads-review.ts",
+          "source-package/trust/encrypt-ika-policy.ts",
+          "source-package/trust/evidence.md"
+        ]
+      }
+    }
+  ]
+}

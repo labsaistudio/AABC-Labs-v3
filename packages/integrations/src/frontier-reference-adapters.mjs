@@ -21,6 +21,21 @@ const SIGNALS = Object.freeze({
     'swap instruction preparation boundary',
     'credential boundary',
   ],
+  'encrypt-encrypted-capital-markets': [
+    'encrypted order intent boundary',
+    'confidential state review',
+    'public proof envelope',
+  ],
+  'ika-bridgeless-capital-markets': [
+    'bridgeless custody boundary',
+    'cross-chain authorization review',
+    'dWallet policy surface',
+  ],
+  'umbra-privacy-sdk': [
+    'privacy proof boundary',
+    'recipient reveal policy',
+    'public artifact redaction',
+  ],
 });
 
 export function buildFrontierCapabilityArtifact({ workflow, step }) {

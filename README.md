@@ -72,6 +72,10 @@ the generated proof shape without running anything first.
   settlement.
 - Jupiter Developer Platform is represented as a routing and quote capability
   boundary for prepared launch operations.
+- Encrypt and Ika are represented as encrypted and bridgeless capital markets
+  boundaries for trust operation workflows.
+- Umbra is represented as a privacy SDK boundary for fair sale and claim
+  workflows.
 
 ## Solana Ecosystem Surface
 
@@ -95,6 +99,11 @@ live sponsor SDK wiring.
 The Jupiter developer surface attaches to launch operations as a prepared-only
 quote, price, token search, and swap-instruction planning layer. Production
 credentials stay outside the public repository.
+
+Encrypt and Ika attach to trust operations as encrypted intent and bridgeless
+custody boundaries. Umbra attaches to fair sale workflows as a privacy and
+recipient reveal policy boundary. RPC infrastructure credits remain attached to
+market monitoring workflows.
 
 See `docs/solana-ecosystem.md` for the public boundary.
 

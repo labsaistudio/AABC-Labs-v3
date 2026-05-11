@@ -9,6 +9,10 @@
       "helius-protocol",
       "squads-protocol",
       "raydium-protocol"
+    ],
+    "frontierCapabilities": [
+      "encrypt-encrypted-capital-markets",
+      "ika-bridgeless-capital-markets"
     ]
   },
   "steps": [
@@ -30,6 +34,7 @@
       "signerMode": "prepare_only",
       "operationType": "lp_lock",
       "network": "testnet",
+      "frontierRuntime": true,
       "expectedArtifacts": ["lock_plan"]
     }
   ],
@@ -45,6 +50,11 @@
         "path": "trust/squads-review.ts",
         "kind": "source",
         "sourcePath": "source/trust/squads-review.ts"
+      },
+      {
+        "path": "trust/encrypt-ika-policy.ts",
+        "kind": "source",
+        "sourcePath": "source/trust/encrypt-ika-policy.ts"
       },
       {
         "path": "trust/evidence.md",

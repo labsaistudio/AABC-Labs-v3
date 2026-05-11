@@ -11,6 +11,9 @@
       "reown-wallet-connectivity",
       "blinks-solana-actions",
       "squads-protocol"
+    ],
+    "frontierCapabilities": [
+      "umbra-privacy-sdk"
     ]
   },
   "steps": [
@@ -22,6 +25,7 @@
       "signerMode": "prepare_only",
       "operationType": "generate_source",
       "network": "testnet",
+      "frontierRuntime": true,
       "expectedArtifacts": ["sale_config"]
     },
     {
@@ -47,6 +51,11 @@
         "path": "sale/blink-action.ts",
         "kind": "source",
         "sourcePath": "source/sale/blink-action.ts"
+      },
+      {
+        "path": "sale/umbra-privacy-policy.ts",
+        "kind": "source",
+        "sourcePath": "source/sale/umbra-privacy-policy.ts"
       },
       {
         "path": "sale/allocation-policy.json",
