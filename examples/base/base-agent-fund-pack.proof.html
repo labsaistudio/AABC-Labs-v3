@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AABC Base Agent Fund Pack Proof</title>
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; margin: 40px; color: #111827; }
+    table { border-collapse: collapse; width: 100%; margin: 18px 0 28px; }
+    th, td { border: 1px solid #d1d5db; padding: 10px; text-align: left; vertical-align: top; }
+    th { background: #f3f4f6; }
+    code { background: #f3f4f6; padding: 2px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>AABC Base Agent Fund Pack</h1>
+  <p>Base workflow proof generated for reviewer inspection.</p>
+  <p><strong>Network:</strong> <code>base-mainnet</code></p>
+  <h2>Steps</h2>
+  <table><thead><tr><th>ID</th><th>Intent</th><th>Status</th></tr></thead><tbody>
+    <tr>
+      <td>discover-paid-service</td>
+      <td>Find a paid resource and capture its x402 requirement.</td>
+      <td>completed</td>
+    </tr>
+    <tr>
+      <td>pay-for-service</td>
+      <td>Prepare an agent buyer request for the approved paid resource.</td>
+      <td>completed</td>
+    </tr>
+    <tr>
+      <td>create-paid-endpoint</td>
+      <td>Generate a paid endpoint source package for another agent to call.</td>
+      <td>completed</td>
+    </tr>
+    <tr>
+      <td>record-proof</td>
+      <td>Record the workflow evidence envelope for Base review.</td>
+      <td>completed</td>
+    </tr></tbody></table>
+  <h2>Artifacts</h2>
+  <table><thead><tr><th>Type</th><th>Title</th><th>Data</th></tr></thead><tbody>
+    <tr>
+      <td>x402_buyer_request</td>
+      <td>x402 buyer request plan</td>
+      <td>{&quot;network&quot;:&quot;eip155:8453&quot;,&quot;packages&quot;:[&quot;@x402/fetch&quot;,&quot;@x402/evm&quot;],&quot;source&quot;:&quot;src/x402/agent-payer.mjs&quot;,&quot;command&quot;:&quot;npm run pay-report&quot;,&quot;facilitator&quot;:&quot;https://api.cdp.coinbase.com/platform/v2/x402&quot;}</td>
+    </tr>
+    <tr>
+      <td>x402_seller_endpoint</td>
+      <td>x402 seller endpoint source package</td>
+      <td>{&quot;network&quot;:&quot;eip155:8453&quot;,&quot;packages&quot;:[&quot;x402-express&quot;,&quot;@x402/next&quot;],&quot;scaffold&quot;:&quot;scaffolds/x402-express&quot;}</td>
+    </tr>
+    <tr>
+      <td>base_proof_record</td>
+      <td>Base workflow proof record</td>
+      <td>{&quot;explorer&quot;:&quot;https://basescan.org&quot;,&quot;status&quot;:&quot;prepared_for_review&quot;}</td>
+    </tr></tbody></table>
+</body>
+</html>

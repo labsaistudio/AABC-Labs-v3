@@ -1,0 +1,71 @@
+{
+  "product": "AABC Base Agent Fund Pack",
+  "ecosystem": "base",
+  "network": "base-mainnet",
+  "createdAt": "2026-05-16T00:00:00.000Z",
+  "steps": [
+    {
+      "id": "discover-paid-service",
+      "intent": "Find a paid resource and capture its x402 requirement.",
+      "mode": "reviewable_reference",
+      "status": "completed"
+    },
+    {
+      "id": "pay-for-service",
+      "intent": "Prepare an agent buyer request for the approved paid resource.",
+      "mode": "reviewable_reference",
+      "status": "completed"
+    },
+    {
+      "id": "create-paid-endpoint",
+      "intent": "Generate a paid endpoint source package for another agent to call.",
+      "mode": "reviewable_reference",
+      "status": "completed"
+    },
+    {
+      "id": "record-proof",
+      "intent": "Record the workflow evidence envelope for Base review.",
+      "mode": "reviewable_reference",
+      "status": "completed"
+    }
+  ],
+  "artifacts": [
+    {
+      "type": "x402_buyer_request",
+      "title": "x402 buyer request plan",
+      "public": true,
+      "data": {
+        "network": "eip155:8453",
+        "packages": [
+          "@x402/fetch",
+          "@x402/evm"
+        ],
+        "source": "src/x402/agent-payer.mjs",
+        "command": "npm run pay-report",
+        "facilitator": "https://api.cdp.coinbase.com/platform/v2/x402"
+      }
+    },
+    {
+      "type": "x402_seller_endpoint",
+      "title": "x402 seller endpoint source package",
+      "public": true,
+      "data": {
+        "network": "eip155:8453",
+        "packages": [
+          "x402-express",
+          "@x402/next"
+        ],
+        "scaffold": "scaffolds/x402-express"
+      }
+    },
+    {
+      "type": "base_proof_record",
+      "title": "Base workflow proof record",
+      "public": true,
+      "data": {
+        "explorer": "https://basescan.org",
+        "status": "prepared_for_review"
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # AABC Labs v3
 
-Proof-first agent workflows for Web3 operations.
+Proof-first agent workflows for onchain operations.
 
 AABC Labs v3 turns agent tasks into typed workflow contracts, policy-checked
 steps, replayable event logs, source package manifests, and verifiable proof
@@ -12,7 +12,7 @@ that a user can review.
 
 ## Why This Exists
 
-Agent-led Web3 workflows need more than a chat transcript. They need a record
+Agent-led onchain workflows need more than a chat transcript. They need a record
 of what was requested, which steps were allowed, which actions were blocked,
 which artifacts were generated, and which source files a user can inspect.
 
@@ -38,6 +38,26 @@ The demo writes a local run under `.outcome/runs/token-program` with:
 
 Curated examples are committed under `examples/runs/` so reviewers can inspect
 the generated proof shape without running anything first.
+
+Base/x402 commands are included in the same public repository:
+
+```bash
+npm run base:demo
+npm run base:verify
+npm run base:submission
+npm run base:readiness
+npm run base:server
+npm run base:pay-report
+```
+
+The Base demo writes:
+
+- `examples/base/base-agent-fund-pack.proof.json`
+- `examples/base/base-agent-fund-pack.proof.html`
+- `examples/base/base-submission-pack.json`
+- `examples/base/base-readiness-report.json`
+- `examples/base/base-proof-transaction.json`
+- `examples/base/base-agent-payment-result.json`
 
 ## End-to-End Flow
 
@@ -81,6 +101,10 @@ the generated proof shape without running anything first.
 - SNS is represented as an identity and naming boundary for asset workflows.
 - Jito and LI.FI are represented as transaction landing and cross-chain routing
   boundaries for launch operations.
+- Base x402 is represented as both a paid endpoint surface and an agent payer
+  surface, with proof records that map payment evidence to reviewable runs.
+- Base Account and Paymaster planning are included as public scaffolds for
+  wallet onboarding, gas policy, and sponsored proof-record flows.
 
 ## Solana Ecosystem Surface
 
@@ -135,6 +159,39 @@ This repository includes sanitized workflow packs for common Web3 operations:
 
 They are examples of the architecture, not the project boundary.
 
+## Base And x402 Surface
+
+AABC Labs v3 now includes a Base-focused layer for x402 payments and proof.
+This layer keeps the same public-safe rule as the rest of the repository: it
+shows the contracts, scaffolds, proof shape, and reviewer flow without including
+production prompts, wallet material, hosted secrets, or private deployment
+wiring.
+
+The Base layer includes:
+
+- `src/base` for Base funding paths, capability contracts, network config, and
+  readiness reports.
+- `src/x402` for x402 resource planning, payment policy validation, and an
+  agent payer path for protected resources.
+- `src/workflow` and `src/proof` for a Base agent workflow, proof verifier, and
+  static proof export.
+- `contracts/BaseWorkflowProofRegistry.sol` for a minimal proof registry target.
+- `scaffolds/x402-express`, `scaffolds/x402-next`, and
+  `scaffolds/x402-buyer` for paid endpoint and payer starters.
+- `scaffolds/agentic-wallet` and `scaffolds/base-account-paymaster` for Base
+  account onboarding and gas policy planning.
+- `examples/base/base-*` for generated proof, readiness, submission, deployment, and
+  payment evidence.
+
+Base mainnet evidence included in this public layer:
+
+- Registry:
+  `https://basescan.org/address/0x5b92c87b8a366a7d4052fd4755c50e00bba6a525`
+- Proof record:
+  `https://basescan.org/tx/0x5a5d5c145982574d98d9cb98bf407bb6e0dab501b626d917ff2eabf7a89b4321`
+- x402 payment:
+  `https://basescan.org/tx/0x0287cd12e454b3dd192dedcada39ceab4910bed99051dacf18d686dbe4845dd7`
+
 ## What To Review
 
 - `packages/core` for workflow validation, execution, event logs, replay, and
@@ -147,9 +204,12 @@ They are examples of the architecture, not the project boundary.
   static proof export.
 - `packages/integrations` for the public Solana, QVAC, and Frontier sponsor
   capability contracts.
+- `src/base`, `src/x402`, `contracts`, and `scaffolds` for the Base/x402 agent
+  payment and paid endpoint layer.
 - `workflow-packs/*/source` for sanitized source packages that represent what a
   completed agent workflow should hand back to a user.
 - `examples/runs` for generated proof output.
+- `examples/base/base-*` for generated Base/x402 evidence.
 
 ## Security and Scope
 

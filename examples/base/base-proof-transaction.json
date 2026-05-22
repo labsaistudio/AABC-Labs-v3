@@ -1,0 +1,13 @@
+{
+  "ecosystem": "base",
+  "network": "base-mainnet",
+  "chainId": 8453,
+  "to": "0x0000000000000000000000000000000000000001",
+  "method": "recordProof(bytes32)",
+  "data": "0x2263f290bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "args": [
+    "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  ],
+  "explorerBaseUrl": "https://basescan.org",
+  "status": "prepared_for_review"
+}

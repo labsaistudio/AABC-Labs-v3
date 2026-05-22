@@ -1,0 +1,15 @@
+{
+  "ecosystem": "base",
+  "network": "base-mainnet",
+  "chainId": 8453,
+  "deployer": "0x315BcB2A8B6A303598fD23921Cb89828BC773598",
+  "proofRegistry": "0x5b92c87b8a366a7d4052fd4755c50e00bba6a525",
+  "proofHash": "0xb0a51340a989a849d53458b1a36f8afe9fa03caa514b8349a2608de6551e25ee",
+  "deploymentTransaction": "0x31a943f5447ca56ae33130f542aa40dcd74a96c3bbc263834319ab5a5e8a895d",
+  "proofRecordTransaction": "0x5a5d5c145982574d98d9cb98bf407bb6e0dab501b626d917ff2eabf7a89b4321",
+  "explorer": {
+    "registry": "https://basescan.org/address/0x5b92c87b8a366a7d4052fd4755c50e00bba6a525",
+    "deployment": "https://basescan.org/tx/0x31a943f5447ca56ae33130f542aa40dcd74a96c3bbc263834319ab5a5e8a895d",
+    "proofRecord": "https://basescan.org/tx/0x5a5d5c145982574d98d9cb98bf407bb6e0dab501b626d917ff2eabf7a89b4321"
+  }
+}

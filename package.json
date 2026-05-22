@@ -3,24 +3,34 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "description": "Proof-first agent workflows for Web3 operations.",
+  "description": "Proof-first agent workflows for onchain operations.",
   "bin": {
-    "aabc-v3": "./cli/src/index.mjs"
+    "aabc-v3": "./cli/src/index.mjs",
+    "aabc-base": "./cli/index.mjs"
   },
   "scripts": {
     "demo": "node cli/src/index.mjs run workflow-packs/token-program/workflow.json --out .outcome/runs/token-program",
     "demo:market": "node cli/src/index.mjs run workflow-packs/market-monitor/workflow.json --out .outcome/runs/market-monitor",
     "demo:paid": "node cli/src/index.mjs run workflow-packs/paid-endpoint/workflow.json --out .outcome/runs/paid-endpoint",
+    "base:demo": "node cli/index.mjs demo",
+    "base:server": "node apps/demo/server.mjs",
+    "base:verify": "node cli/index.mjs verify examples/base/base-agent-fund-pack.proof.json",
+    "base:submission": "node cli/index.mjs submission",
+    "base:readiness": "node cli/index.mjs readiness",
+    "base:proof-tx": "node cli/index.mjs proof-tx 8453 0x0000000000000000000000000000000000000001 0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "base:pay-report": "node cli/index.mjs pay-report",
+    "base:deploy-proof-registry": "node scripts/deploy-proof-registry.mjs",
     "verify": "node cli/src/index.mjs verify .outcome/runs/token-program",
     "export-proof": "node cli/src/index.mjs export-proof .outcome/runs/token-program",
     "architecture": "node cli/src/index.mjs architecture",
     "studio": "node apps/studio/server.mjs",
     "scan": "node cli/src/index.mjs scan .",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs tests/base/*.test.mjs"
   },
   "keywords": [
     "agent",
-    "web3",
+    "onchain",
+    "base",
     "solana",
     "x402",
     "proof",
@@ -28,5 +38,13 @@
     "policy",
     "audit"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@x402/evm": "^2.12.0",
+    "@x402/fetch": "^2.12.0"
+  },
+  "devDependencies": {
+    "solc": "^0.8.35",
+    "viem": "^2.49.3"
+  }
 }

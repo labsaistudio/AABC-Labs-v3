@@ -1,0 +1,12 @@
+{
+  "ecosystem": "base",
+  "network": "base-mainnet",
+  "sponsoredCalls": [
+    "recordProof(bytes32)"
+  ],
+  "spendLimitUsd": 25,
+  "reviewRequired": true,
+  "contractAllowlist": [
+    "BaseWorkflowProofRegistry"
+  ]
+}

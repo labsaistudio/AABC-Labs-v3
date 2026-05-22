@@ -1,0 +1,64 @@
+{
+  "product": "AABC Base Agent Fund Pack",
+  "ecosystem": "base",
+  "summary": "Onchain agent execution, payments, and proof on Base.",
+  "evidence": [
+    {
+      "type": "repository",
+      "url": "https://github.com/labsaistudio/AABC-Labs-v3",
+      "status": "ready"
+    },
+    {
+      "type": "demo",
+      "url": "https://app.aabc.app/base-demo",
+      "status": "placeholder"
+    },
+    {
+      "type": "x402_endpoint",
+      "url": "https://app.aabc.app/api/base-agent-report",
+      "status": "ready"
+    },
+    {
+      "type": "proof",
+      "url": "https://app.aabc.app/base-fund",
+      "status": "ready"
+    },
+    {
+      "type": "explorer",
+      "url": "https://basescan.org/tx/0x5a5d5c145982574d98d9cb98bf407bb6e0dab501b626d917ff2eabf7a89b4321",
+      "status": "ready"
+    }
+  ],
+  "readinessChecks": [
+    {
+      "id": "repository",
+      "status": "ready",
+      "url": "https://github.com/labsaistudio/AABC-Labs-v3"
+    },
+    {
+      "id": "demo",
+      "status": "placeholder",
+      "url": "https://app.aabc.app/base-demo"
+    },
+    {
+      "id": "x402_endpoint",
+      "status": "ready",
+      "url": "https://app.aabc.app/api/base-agent-report"
+    },
+    {
+      "id": "proof",
+      "status": "ready",
+      "url": "https://app.aabc.app/base-fund"
+    },
+    {
+      "id": "explorer",
+      "status": "ready",
+      "url": "https://basescan.org/tx/0x5a5d5c145982574d98d9cb98bf407bb6e0dab501b626d917ff2eabf7a89b4321"
+    }
+  ],
+  "fundingTargets": [
+    "weekly-rewards",
+    "builder-grants",
+    "op-retro-funding"
+  ]
+}

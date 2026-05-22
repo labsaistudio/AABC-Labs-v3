@@ -1,0 +1,10 @@
+{
+  "product": "AABC Base Agent Fund Pack",
+  "ecosystem": "base",
+  "readyCount": 4,
+  "placeholderCount": 1,
+  "nextRequiredEvidence": [
+    "demo"
+  ],
+  "canSubmit": false
+}

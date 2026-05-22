@@ -1,0 +1,7 @@
+{
+  "ecosystem": "base",
+  "command": "npx skills add coinbase/agentic-wallet-skills",
+  "task": "pay_approved_x402_resource",
+  "network": "base-mainnet",
+  "proofRequired": true
+}

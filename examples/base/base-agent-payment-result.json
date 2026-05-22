@@ -1,0 +1,18 @@
+{
+  "endpoint": "https://app.aabc.app/api/base-agent-report",
+  "payer": "0x315BcB2A8B6A303598fD23921Cb89828BC773598",
+  "status": 200,
+  "ok": true,
+  "paymentPayloadVersion": 1,
+  "requirement": {
+    "scheme": "exact",
+    "network": "base",
+    "amount": "10000",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "payTo": "0xE7DeBBC9DE869D28B914a3F19E1fc192f849FefF"
+  },
+  "paymentResponse": "eyJzdWNjZXNzIjp0cnVlLCJ0cmFuc2FjdGlvbiI6IjB4MDI4N2NkMTJlNDU0YjNkZDE5MmRlZGNhZGEzOWNlYWI0OTEwYmVkOTkwNTFkYWNmMThkNjg2ZGJlNDg0NWRkNyIsIm5ldHdvcmsiOiJiYXNlIiwicGF5ZXIiOiIweDMxNUJjQjJBOEI2QTMwMzU5OGZEMjM5MjFDYjg5ODI4QkM3NzM1OTgifQ==",
+  "body": "{\"product\":\"AABC Base Agent Report\",\"network\":\"Base mainnet\",\"report\":{\"summary\":\"Paid agent report delivered through x402 on Base.\",\"proofRegistry\":\"0x5b92c87b8a366a7d4052fd4755c50e00bba6a525\",\"proofRecord\":\"0x5a5d5c145982574d98d9cb98bf407bb6e0dab501b626d917ff2eabf7a89b4321\",\"repository\":\"https://github.com/labsaistudio/AABC-Labs-v3\"}}",
+  "requiredAtomic": "10000",
+  "balanceBeforeAtomic": "10910527"
+}
